@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rnijampure.github.io/new-portfolio-design/sitemap.xml
