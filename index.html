@@ -1048,6 +1048,32 @@
           display: block;
         }
       }
+    
+      /* ============ FEATURED PROJECT (BuzzFest) ============ */
+      .bf { scroll-margin-top: var(--nav-h); }
+      .bf-badge { display: inline-block; border: 1px solid var(--accent-primary); color: var(--accent-primary); padding: 5px 12px; border-radius: 2px; font-size: 0.8rem; margin-bottom: 22px; }
+      .bf h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); max-width: 18ch; }
+      .bf-lede { margin-top: 20px; line-height: 1.7; opacity: 0.86; max-width: 58ch; font-size: 1.04rem; }
+      .bf-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(36px, 6vw, 80px); align-items: start; margin-top: 56px; }
+      .bf-rail { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line-strong); }
+      .bf-rail li { position: relative; padding: 0 0 26px 26px; }
+      .bf-rail li::before { content: ""; position: absolute; left: -5px; top: 8px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent-primary); }
+      .bf-rail b { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; display: block; margin-bottom: 4px; }
+      .bf-rail span { font-size: 0.92rem; opacity: 0.78; line-height: 1.6; display: block; max-width: 40ch; }
+      .bf-docs { display: grid; gap: 1px; background: var(--line-strong); border: 1px solid var(--line-strong); }
+      .bf-doc { background: var(--bg-strong-2); padding: 28px; }
+      .bf-doc h3 { font-size: 1.3rem; margin-bottom: 10px; }
+      .bf-doc p { font-size: 0.95rem; line-height: 1.65; opacity: 0.82; }
+      .bf-status { font-size: 0.78rem; color: var(--accent-primary); display: block; margin-bottom: 10px; }
+      .bf-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+      .bf-links .btn { padding: 10px 18px; font-size: 0.86rem; }
+      .bf-embed { margin-top: 48px; border: 1px solid var(--line-strong); }
+      .bf-embed summary { cursor: pointer; padding: 18px 22px; font-family: var(--font-display); font-size: 1.15rem; }
+      .bf-embed summary:hover { color: var(--accent-primary); }
+      .bf-frame { position: relative; aspect-ratio: 16 / 9; border-top: 1px solid var(--line-strong); }
+      .bf-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .bf-note { font-size: 0.84rem; opacity: 0.7; padding: 12px 22px 16px; border-top: 1px solid var(--line-strong); }
+      @media (max-width: 900px) { .bf-grid { grid-template-columns: 1fr; } }
     </style>
   </head>
   <body>
@@ -1058,6 +1084,7 @@
       <div class="nav-right">
         <div class="nav-menu" id="navMenu">
           <ul class="nav-links">
+            <li><a href="#featured">BuzzFest</a></li>
             <li><a href="#work">Writing</a></li>
             <li><a href="design.html">UX / Design</a></li>
             <li><a href="#about">About</a></li>
@@ -1327,6 +1354,53 @@
       <div class="scroll-cue"><span class="line"></span> scroll</div>
     </header>
 
+    <!-- ============ FEATURED PROJECT: BUZZFEST ============ -->
+    <section class="band band-ink bf" id="featured">
+      <div class="inner">
+        <div class="reveal">
+          <span class="bf-badge">Featured project · product writing</span>
+          <h2>Documentation that matches what the product really does</h2>
+          <p class="bf-lede">BuzzFest is a concept home-baker ordering marketplace that I researched, designed and built as a beta. These are the documents I wrote for it, each checked against the live site, the database schema and sample data.</p>
+          <div class="hero-actions" style="margin-top: 28px">
+            <a class="btn btn-primary" href="https://buzz-fest.vercel.app/" target="_blank" rel="noopener">Open the live beta</a>
+            <a class="btn btn-ghost-light" href="design.html#featured">See the design side</a>
+          </div>
+        </div>
+        <div class="bf-grid reveal">
+          <div>
+            <ol class="bf-rail">
+              <li><b>Research</b><span>Four pain points and three personas behind the goal statement.</span></li>
+              <li><b>Design</b><span>Wireframes, a prototype and a chocolate-themed style guide, built in Figma.</span></li>
+              <li><b>Build</b><span>A live beta in Next.js and PostgreSQL: browse bakers, add to cart, place an order.</span></li>
+              <li><b>Document</b><span>Product and technical documentation, checked against the live site and the schema.</span></li>
+            </ol>
+          </div>
+          <div>
+            <div class="bf-docs">
+              <div class="bf-doc">
+                <span class="bf-status">Available now</span>
+                <h3>Product documentation</h3>
+                <p>What BuzzFest is, who it is for and what works today. Every claim is checked against the live site, the database schema and sample data, and the known limitations are listed.</p>
+                <div class="bf-links"><a class="btn btn-ghost-light" href="assets/buzzfest-product-documentation.pdf">Read the document</a><a class="btn btn-ghost-light" href="https://buzz-fest.vercel.app/" target="_blank" rel="noopener">Live beta</a></div>
+              </div>
+              <div class="bf-doc">
+                <span class="bf-status">In progress</span>
+                <h3>Technical documentation</h3>
+                <p>Architecture, data model and setup for developers, written from the repository and the Prisma schema.</p>
+                <div class="bf-links"><a class="btn btn-ghost-light" href="https://github.com/rnijampure/buzzFest" target="_blank" rel="noopener">View the repository</a></div>
+              </div>
+              <div class="bf-doc">
+                <span class="bf-status">Case study</span>
+                <h3>Product journey</h3>
+                <p>The research, personas, journey map, wireframes and style guide that shaped the product.</p>
+                <div class="bf-links"><a class="btn btn-ghost-light" href="assets/buzzfest-product-journey.pdf">Read the case study</a><a class="btn btn-ghost-light" href="https://docs.google.com/presentation/d/1LEFaP4QtHL6kJTGzFGF35TZScXkSBKyGo-bjZ685E84/edit?usp=drive_link" target="_blank" rel="noopener">Open the slides</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ ABOUT ============ -->
     <section class="band band-paper" id="about">
       <div class="fold fold-to-paper"></div>
@@ -1561,13 +1635,13 @@
             ><span class="toc-num">VII</span
             ><span class="toc-title">Technical Writing &amp; Accessibility</span
             ><span class="toc-fill"></span
-            ><span class="toc-count">2 pieces</span></a
+            ><span class="toc-count">3 pieces</span></a
           >
           <a href="#chapter-8" class="toc-row"
             ><span class="toc-num">VIII</span
             ><span class="toc-title">UX &amp; Product Design</span
             ><span class="toc-fill"></span
-            ><span class="toc-count">4 pieces</span></a
+            ><span class="toc-count">5 pieces</span></a
           >
         </div>
       </div>
@@ -1820,6 +1894,9 @@
             </p>
             <ul class="piece-list">
               <li>
+                <a class="piece" href="#featured"><span class="piece-title">BuzzFest — product &amp; technical documentation</span><span class="piece-tag">Product writing</span></a>
+              </li>
+              <li>
                 <a
                   class="piece"
                   href="https://tech-artist.hashnode.dev"
@@ -1859,6 +1936,9 @@
               between.
             </p>
             <ul class="piece-list">
+              <li>
+                <a class="piece" href="design.html#featured"><span class="piece-title">BuzzFest — product journey, research to build</span><span class="piece-tag">Case study</span></a>
+              </li>
               <li>
                 <a
                   class="piece"
