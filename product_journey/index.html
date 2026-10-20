@@ -1,0 +1,1454 @@
+<!doctype html>
+<html lang="en" data-theme="a">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>BuzzFest: from idea to beta | Rohini Nijampure</title>
+    <meta
+      name="description"
+      content="How a bakery-ordering idea was researched, designed and built into a live beta by one designer, Rohini Nijampure."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ease: cubic-bezier(0.65, 0, 0.35, 1);
+        --display: "Bricolage Grotesque", Inter, system-ui, sans-serif;
+        --ink: #1b2333;
+        --muted: #4b566b;
+        --pri: #1558c0;
+        --onpri: #fff;
+        --acc: #fbbc04;
+        --card: #fff;
+        --line: #c9d3e6;
+        --bg1: #e8f0fe;
+        --bg2: #fef7e0;
+        --bg3: #e6f4ea;
+        --bg4: #fce8e6;
+        --bg5: #f3e8fd;
+      }
+      [data-theme="b"] {
+        --ink: #2a1233;
+        --muted: #5e4a68;
+        --pri: #b0225b;
+        --acc: #ff9e7a;
+        --line: #e8c9d6;
+        --bg1: #fde8ee;
+        --bg2: #ffefe4;
+        --bg3: #f3eafb;
+        --bg4: #fff4d6;
+        --bg5: #e7f3f1;
+      }
+      [data-theme="c"] {
+        --ink: #10261d;
+        --muted: #3e5a4c;
+        --pri: #1f6b4a;
+        --acc: #f2c94c;
+        --line: #c5dccf;
+        --bg1: #e3f1e7;
+        --bg2: #fff5cf;
+        --bg3: #e6f0f4;
+        --bg4: #eff6dd;
+        --bg5: #f1eaf6;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+        background: var(--bg1);
+        color: var(--ink);
+        font:
+          400 1rem/1.55 Inter,
+          system-ui,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 3px solid var(--pri);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+      .stage {
+        position: fixed;
+        inset: 0;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        visibility: hidden;
+        display: flex;
+        overflow: auto;
+        padding: clamp(84px, 11vh, 110px) clamp(18px, 5vw, 80px)
+          clamp(92px, 13vh, 120px);
+        transition: background 0.5s;
+      }
+      .scene.active,
+      .scene.enter {
+        visibility: visible;
+      }
+      .scene.enter {
+        z-index: 2;
+      }
+      .in {
+        margin: auto;
+        width: min(1180px, 100%);
+      }
+      .s1 {
+        background: var(--bg1);
+      }
+      .s2 {
+        background: var(--bg2);
+      }
+      .s3 {
+        background: var(--bg3);
+      }
+      .s4 {
+        background: var(--bg4);
+      }
+      .s5 {
+        background: var(--bg5);
+      }
+      h1,
+      h2 {
+        font-family: var(--display);
+        letter-spacing: -0.025em;
+        line-height: 1.03;
+        color: var(--pri);
+      }
+      h2 {
+        font-size: clamp(1.9rem, 3.8vw, 3rem);
+        font-weight: 800;
+        max-width: 20ch;
+      }
+      h3 {
+        font:
+          700 1.05rem Inter,
+          sans-serif;
+      }
+      .lede {
+        font-size: clamp(1rem, 1.4vw, 1.15rem);
+        max-width: 58ch;
+        margin-top: 1rem;
+        color: var(--muted);
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        min-height: 46px;
+        padding: 0.6rem 1.3rem;
+        border-radius: 999px;
+        border: 2px solid var(--pri);
+        font:
+          600 0.95rem Inter,
+          sans-serif;
+        text-decoration: none;
+        cursor: pointer;
+        background: none;
+        color: var(--pri);
+        transition: transform 0.25s var(--ease);
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn.pri {
+        background: var(--acc);
+        border-color: var(--acc);
+        color: var(--ink);
+      }
+      .btn.dark {
+        background: var(--pri);
+        color: var(--onpri);
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: clamp(1.5rem, 4vw, 3.5rem);
+        align-items: center;
+      }
+      .card {
+        background: var(--card);
+        border-radius: 24px;
+        box-shadow: 0 18px 44px rgba(20, 30, 60, 0.12);
+      }
+
+      /* chrome */
+      .pill {
+        position: fixed;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--pri);
+        border-radius: 999px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      .top-l {
+        top: max(12px, env(safe-area-inset-top));
+        left: 12px;
+        padding: 5px 14px 5px 8px;
+        text-decoration: none;
+      }
+      .top-l img {
+        height: 28px;
+        display: block;
+      }
+      .top-r {
+        top: max(12px, env(safe-area-inset-top));
+        right: 12px;
+        padding: 4px 6px 4px 14px;
+      }
+      .top-r a {
+        text-decoration: none;
+      }
+      .sw {
+        min-width: 44px;
+        min-height: 44px;
+        border: 0;
+        background: none;
+        padding: 0;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+      }
+      .sw i {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-shadow: 0 0 0 2px var(--line);
+      }
+      .sw[aria-pressed="true"] i {
+        box-shadow: 0 0 0 3px var(--pri);
+      }
+      .nav {
+        bottom: max(12px, env(safe-area-inset-bottom));
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 6px;
+        gap: 0.25rem;
+      }
+      .nav button {
+        font:
+          600 0.9rem Inter,
+          sans-serif;
+        min-height: 44px;
+        min-width: 44px;
+        border: 0;
+        border-radius: 999px;
+        background: none;
+        color: var(--pri);
+        cursor: pointer;
+        padding: 0 0.9rem;
+      }
+      .nav button:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+      .nav .next {
+        background: var(--pri);
+        color: var(--onpri);
+      }
+      .rail {
+        display: flex;
+        gap: 2px;
+        align-items: center;
+        padding: 0 0.3rem;
+      }
+      .rail button {
+        padding: 0 0.35rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        min-width: 0;
+      }
+      .rail i {
+        display: block;
+        height: 10px;
+        width: 10px;
+        border-radius: 99px;
+        background: var(--line);
+        transition:
+          width 0.4s var(--ease),
+          background 0.3s;
+        flex: none;
+      }
+      .rail span {
+        font-size: 0.85rem;
+        max-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        opacity: 0;
+        transition:
+          max-width 0.4s var(--ease),
+          opacity 0.3s;
+      }
+      .rail button[aria-current="true"] i {
+        background: var(--pri);
+        width: 12px;
+      }
+      .rail button[aria-current="true"] span {
+        max-width: 90px;
+        opacity: 1;
+      }
+
+      /* 1 idea */
+      .hero {
+        display: grid;
+        gap: clamp(1.5rem, 4vw, 3rem);
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+      }
+      .name {
+        font-size: clamp(2.6rem, 7.4vw, 6rem);
+        font-weight: 800;
+        line-height: 1;
+      }
+      .mask {
+        display: inline-grid;
+        overflow: hidden;
+        padding-bottom: 0.1em;
+      }
+      .w {
+        grid-area: 1/1;
+        white-space: nowrap;
+      }
+      .b {
+        transform: translateY(105%);
+      }
+      .tag {
+        font: 700 1.15rem var(--display);
+        color: var(--ink);
+        margin-top: 0.3rem;
+      }
+      .goal {
+        margin-top: 1.6rem;
+        padding: 1.1rem 1.3rem;
+        border-left: 5px solid var(--acc);
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 0 16px 16px 0;
+        max-width: 52ch;
+      }
+      .goal h3 {
+        color: var(--pri);
+      }
+      .solo {
+        margin-top: 1rem;
+        font-weight: 600;
+      }
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 1.5rem;
+      }
+      .photo {
+        position: relative;
+      }
+      .photo img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 32px;
+        display: block;
+        box-shadow: 0 28px 56px rgba(20, 30, 60, 0.25);
+      }
+      .chip {
+        position: absolute;
+        left: -12px;
+        bottom: 22px;
+        background: #fff;
+        color: var(--pri);
+        border-radius: 999px;
+        padding: 0.5rem 1rem 0.5rem 0.8rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .chip i {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        background: #2e9e4f;
+        animation: ping 2s infinite;
+      }
+      @keyframes ping {
+        70% {
+          box-shadow: 0 0 0 10px rgba(46, 158, 79, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(46, 158, 79, 0);
+        }
+      }
+
+      /* 2 research */
+      .pains {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 0.5rem;
+        margin-top: 1.1rem;
+      }
+      .pains li {
+        background: var(--card);
+        border-radius: 14px;
+        padding: 0.55rem 1rem;
+        border-left: 5px solid var(--pri);
+      }
+      .pains p {
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      .tabrow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .tabrow button {
+        font:
+          600 0.95rem Inter,
+          sans-serif;
+        min-height: 44px;
+        padding: 0 1.1rem;
+        border-radius: 999px;
+        border: 2px solid var(--pri);
+        background: var(--card);
+        color: var(--pri);
+        cursor: pointer;
+        transition: all 0.3s var(--ease);
+      }
+      .tabrow button[aria-selected="true"] {
+        background: var(--pri);
+        color: var(--onpri);
+      }
+      .shot {
+        overflow: hidden;
+        padding: 0.6rem;
+      }
+      .shot img {
+        display: block;
+        width: 100%;
+        max-height: 44vh;
+        object-fit: contain;
+        border-radius: 16px;
+      }
+      .cap {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-top: 0.6rem;
+      }
+
+      /* 3 clarity */
+      .fails {
+        list-style: none;
+        padding: 0;
+        margin-top: 1.2rem;
+        display: grid;
+        gap: 0.6rem;
+      }
+      .fails li {
+        padding-left: 1.6rem;
+        position: relative;
+      }
+      .fails li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5em;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background: var(--acc);
+        box-shadow: 0 0 0 3px #fff;
+      }
+      .needs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.7rem;
+      }
+      .needs span {
+        background: var(--pri);
+        color: var(--onpri);
+        border-radius: 999px;
+        padding: 0.4rem 0.9rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      .frame {
+        aspect-ratio: 16/10;
+        border-radius: 20px;
+        overflow: hidden;
+        background: var(--card);
+        display: grid;
+        place-items: center;
+      }
+      .frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        filter: grayscale(var(--g, 0));
+        transition: filter 0.7s var(--ease);
+      }
+      .frame:not(.has) {
+        border: 2px dashed var(--pri);
+      }
+      .ph {
+        text-align: center;
+        padding: 1.2rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .ph b {
+        display: block;
+        color: var(--pri);
+        font: 700 1.1rem var(--display);
+        margin-bottom: 0.3rem;
+      }
+      .ph code {
+        background: var(--bg1);
+        padding: 0.1rem 0.4rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+      }
+
+      /* 4 design */
+      .stages {
+        display: grid;
+        gap: 0.3rem;
+        margin-top: 1rem;
+      }
+      .stages button {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+        text-align: left;
+        font:
+          600 1rem Inter,
+          sans-serif;
+        min-height: 42px;
+        padding: 0.3rem 0.9rem;
+        border-radius: 12px;
+        border: 2px solid transparent;
+        background: rgba(255, 255, 255, 0.65);
+        color: var(--ink);
+        cursor: pointer;
+        transition: all 0.3s var(--ease);
+      }
+      .stages b {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--line);
+        font-size: 0.85rem;
+        flex: none;
+        transition: all 0.3s;
+      }
+      .stages button[aria-selected="true"] {
+        background: var(--card);
+        border-color: var(--pri);
+        transform: translateX(8px);
+      }
+      .stages button[aria-selected="true"] b {
+        background: var(--pri);
+        color: var(--onpri);
+      }
+      .detail {
+        margin-top: 0.7rem;
+        min-height: 4.8rem;
+      }
+      .detail p {
+        font: 500 1.05rem/1.4 var(--display);
+      }
+      .detail.swap > * {
+        animation: fade 0.45s var(--ease) both;
+      }
+      .swatches {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.7rem;
+      }
+      .swatches i {
+        display: block;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+      }
+
+      /* 5 product */
+      .gal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 0.8rem;
+      }
+      .gal button {
+        font:
+          600 0.85rem Inter,
+          sans-serif;
+        min-height: 40px;
+        padding: 0 0.9rem;
+        border-radius: 999px;
+        border: 2px solid var(--pri);
+        background: var(--card);
+        color: var(--pri);
+        cursor: pointer;
+      }
+      .gal button[aria-selected="true"] {
+        background: var(--pri);
+        color: var(--onpri);
+      }
+      .view {
+        padding: 0.6rem;
+        display: grid;
+        place-items: center;
+        background: var(--card);
+      }
+      .view img {
+        width: 100%;
+        max-height: 50vh;
+        object-fit: contain;
+        border-radius: 14px;
+        display: block;
+        animation: fade 0.5s var(--ease) both;
+      }
+      .lists {
+        display: grid;
+        gap: 1.2rem;
+      }
+      .lists ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 0.5rem;
+        display: grid;
+        gap: 0.45rem;
+      }
+      .lists li {
+        padding-left: 1.7rem;
+        position: relative;
+        font-size: 0.95rem;
+      }
+      .lists li::before {
+        position: absolute;
+        left: 0;
+        top: 0.1em;
+        width: 1.1rem;
+        height: 1.1rem;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+      }
+      .ok li::before {
+        content: "\2713";
+        background: #2e9e4f;
+        color: #fff;
+      }
+      .soon li::before {
+        content: "";
+        border: 2px dashed var(--pri);
+      }
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.4rem;
+        align-items: center;
+      }
+      .links b {
+        font: 700 1.1rem var(--display);
+        color: var(--pri);
+        margin-right: 0.5rem;
+      }
+      .links .btn {
+        min-height: 40px;
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      /* entrance */
+      .r {
+        opacity: 0;
+      }
+      .play .r {
+        animation: fade 0.8s var(--ease) calc(0.3s + var(--i, 0) * 0.09s) both;
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .play .a {
+        animation: out 0.8s var(--ease) 2s both;
+      }
+      .play .b {
+        animation: inn 0.8s var(--ease) 2s both;
+      }
+      @keyframes out {
+        to {
+          transform: translateY(-105%);
+        }
+      }
+      @keyframes inn {
+        to {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .split {
+          grid-template-columns: 1fr;
+        }
+        .photo {
+          max-width: 320px;
+        }
+        .top-r a {
+          display: none;
+        }
+        .top-r {
+          padding: 2px;
+        }
+        .rail span {
+          display: none;
+        }
+        .top-l span {
+          display: none;
+        }
+        .top-l {
+          padding: 5px 8px;
+        }
+        .shot img,
+        .view img {
+          max-height: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+        .r {
+          opacity: 1;
+        }
+        .a {
+          display: none;
+        }
+        .b {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      class="pill top-l"
+      href="https://rnijampure.github.io/portfolio/"
+      aria-label="Back to Rohini Nijampure's portfolio"
+      ><img src="../images/logo.png" alt="Apna Bakery logo" /><span
+        >BuzzFest journey</span
+      ></a
+    >
+    <div class="pill top-r" role="group" aria-label="Colour scheme">
+      <a href="https://rnijampure.github.io/portfolio/">Rohini Nijampure</a>
+      <button
+        class="sw"
+        data-t="a"
+        aria-label="Blue scheme"
+        aria-pressed="true"
+      >
+        <i
+          style="background: linear-gradient(135deg, #1558c0 50%, #fbbc04 50%)"
+        ></i>
+      </button>
+      <button
+        class="sw"
+        data-t="b"
+        aria-label="Berry scheme"
+        aria-pressed="false"
+      >
+        <i
+          style="background: linear-gradient(135deg, #b0225b 50%, #ff9e7a 50%)"
+        ></i>
+      </button>
+      <button
+        class="sw"
+        data-t="c"
+        aria-label="Forest scheme"
+        aria-pressed="false"
+      >
+        <i
+          style="background: linear-gradient(135deg, #1f6b4a 50%, #f2c94c 50%)"
+        ></i>
+      </button>
+    </div>
+
+    <main class="stage">
+      <section class="scene s1" data-title="Idea" aria-label="The idea">
+        <div class="in hero">
+          <div>
+            <h1 class="name r" aria-label="Apna Bakery became BuzzFest">
+              <span class="mask" aria-hidden="true"
+                ><span class="w a">Apna Bakery</span
+                ><span class="w b">BuzzFest</span></span
+              >
+            </h1>
+            <p class="tag r" style="--i: 1" aria-hidden="true">
+              <span class="mask"
+                ><span class="w a">It started as an idea</span
+                ><span class="w b">It is now a live beta</span></span
+              >
+            </p>
+            <p class="lede r" style="--i: 2">
+              A bakery in Koramangala wanted more customers and an easier way to
+              take orders. I took that idea from first questions to a working
+              beta.
+            </p>
+            <div class="goal r" style="--i: 3">
+              <h3>The goal</h3>
+              <p>
+                Let people order fast, cheaper and in a user friendly
+                (accessible) way.
+              </p>
+            </div>
+            <p class="solo r" style="--i: 4">
+              Research, design, code and documentation: all by Rohini Nijampure.
+            </p>
+            <div class="cta r" style="--i: 5">
+              <button class="btn pri" data-next>Start the journey</button>
+              <a
+                class="btn"
+                href="https://buzz-fest.vercel.app/"
+                target="_blank"
+                rel="noopener"
+                >Open the live beta</a
+              >
+            </div>
+          </div>
+          <div class="photo r" style="--i: 2">
+            <img
+              src="../images/bread.png"
+              alt="A table of freshly baked breads and loaves"
+            />
+            <a
+              class="chip"
+              href="https://buzz-fest.vercel.app/"
+              target="_blank"
+              rel="noopener"
+              ><i></i>Live beta</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="scene s2"
+        data-title="Research"
+        aria-label="User research"
+      >
+        <div class="in split">
+          <div>
+            <h2 class="r">I asked 10 clients what gets in their way.</h2>
+            <p class="lede r" style="--i: 1">
+              Three became personas, chosen to cover every age group, gender
+              identity and socio-economic status. Four pain points kept coming
+              up.
+            </p>
+            <ul class="pains r" style="--i: 2">
+              <li>
+                <h3>Healthier alternatives</h3>
+                <p>Still love sweets, want better options.</p>
+              </li>
+              <li>
+                <h3>Offers and prices</h3>
+                <p>Coupons make exotic items reachable.</p>
+              </li>
+              <li>
+                <h3>Updates on delivery</h3>
+                <p>Better bulk ordering and delivery updates.</p>
+              </li>
+              <li>
+                <h3>Accessibility</h3>
+                <p>
+                  Elderly and less tech-savvy people struggle to order online.
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="r" style="--i: 3">
+            <div
+              class="tabrow"
+              role="tablist"
+              aria-label="Personas"
+              id="ptabs"
+            ></div>
+            <div class="card shot"><img id="pimg" alt="" /></div>
+            <p class="cap">Persona boards from my case study.</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="scene s3"
+        data-title="Clarity"
+        aria-label="Making sense of the research"
+      >
+        <div class="in split">
+          <div>
+            <h2 class="r">Then I made sense of it.</h2>
+            <p class="lede r" style="--i: 1">
+              I followed Ritika, a working mother of two, as she orders for a
+              party tonight. The journey map showed where today’s experience
+              fails her.
+            </p>
+            <ul class="fails r" style="--i: 2">
+              <li>
+                Phone ordering is slow, and long explanations irritate her.
+              </li>
+              <li>
+                She worries the address and items were taken down correctly.
+              </li>
+              <li>
+                She keeps calling for delivery status and gets the same answer.
+              </li>
+            </ul>
+            <h3 class="r" style="--i: 3; margin-top: 1.4rem">
+              So the app needed
+            </h3>
+            <div class="needs r" style="--i: 3">
+              <span>Fewer ordering steps</span
+              ><span>A quick list of past orders</span
+              ><span>Order details by email</span
+              ><span>Real-time delivery updates</span>
+            </div>
+          </div>
+          <div class="r" style="--i: 3">
+            <div class="frame card" id="jm"></div>
+            <p class="cap">User journey map from my case study.</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="scene s4"
+        data-title="Design"
+        aria-label="Design iterations"
+      >
+        <div class="in split">
+          <div>
+            <h2 class="r">Then I designed it, and kept changing it.</h2>
+            <p class="lede r" style="--i: 1">
+              Each version went back to what real people needed. Step through
+              the iterations.
+            </p>
+            <div
+              class="stages r"
+              style="--i: 2"
+              role="tablist"
+              aria-label="Design stages"
+              id="stages"
+            ></div>
+          </div>
+          <div class="r" style="--i: 3">
+            <div class="frame card" id="df"></div>
+            <p class="cap" id="dver"></p>
+            <div class="detail" id="ddetail" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="scene s5"
+        data-title="Product"
+        aria-label="The final product"
+      >
+        <div class="in split">
+          <div class="r" style="--i: 1">
+            <h2>The beta: some ideas work, the rest are on the way.</h2>
+            <div
+              class="tabrow gal"
+              style="margin-top: 1.2rem"
+              role="tablist"
+              aria-label="Beta screens"
+              id="gal"
+            ></div>
+            <div class="card view"><img id="gimg" alt="" /></div>
+          </div>
+          <div class="lists">
+            <div class="r" style="--i: 2">
+              <h3>Working today</h3>
+              <ul class="ok">
+                <li>
+                  Four Bangalore bakers and their products, with prices in ₹,
+                  ratings and vegetarian or vegan marks
+                </li>
+                <li>Filters by category, baker and price, plus search</li>
+                <li>
+                  Product pages with a zoomable image, a message and special
+                  instructions
+                </li>
+                <li>A cart with quantities and per-item notes</li>
+                <li>A responsive layout that works on phones</li>
+              </ul>
+            </div>
+            <div class="r" style="--i: 3">
+              <h3>In the pipeline</h3>
+              <ul class="soon">
+                <li>Checkout and payment (the flow stops at the cart today)</li>
+                <li>Offers and crossed-out MRP pricing</li>
+                <li>Delivery updates and a PIN code check</li>
+                <li>Hindi option, text-size controls and order by phone</li>
+                <li>Quick reorder from past orders</li>
+                <li>Baker onboarding and stock checks at checkout</li>
+              </ul>
+            </div>
+            <div class="links r" style="--i: 4">
+              <b>Rohini Nijampure</b>
+              <a class="btn dark" href="https://rnijampure.github.io/portfolio/"
+                >My portfolio</a
+              >
+              <a
+                class="btn"
+                href="https://buzz-fest.vercel.app/"
+                target="_blank"
+                rel="noopener"
+                >Live beta</a
+              >
+              <a
+                class="btn"
+                href="https://github.com/rnijampure/buzzFest"
+                target="_blank"
+                rel="noopener"
+                >Code</a
+              >
+              <a
+                class="btn"
+                href="https://docs.google.com/presentation/d/1LEFaP4QtHL6kJTGzFGF35TZScXkSBKyGo-bjZ685E84/edit?usp=drive_link"
+                target="_blank"
+                rel="noopener"
+                >Case study</a
+              >
+              <a
+                class="btn"
+                href="https://www.figma.com/file/YOcjM3VQQ0ydyezJGQjphi/APNA-BAKERY-HOME-SCREEN"
+                target="_blank"
+                rel="noopener"
+                >Figma</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="pill nav" aria-label="Journey navigation">
+      <button id="prev" aria-label="Previous chapter">Back</button>
+      <div class="rail" id="rail"></div>
+      <button id="next" class="next" aria-label="Next chapter">Next</button>
+    </nav>
+
+    <script>
+      (function () {
+        var $ = function (id) {
+          return document.getElementById(id);
+        };
+        var scenes = [].slice.call(document.querySelectorAll(".scene")),
+          cur = -1,
+          busy = false;
+        var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var prev = $("prev"),
+          next = $("next"),
+          rail = $("rail");
+
+        /* colour schemes */
+        [].forEach.call(document.querySelectorAll(".sw"), function (b) {
+          b.addEventListener("click", function () {
+            document.documentElement.dataset.theme = b.dataset.t;
+            [].forEach.call(document.querySelectorAll(".sw"), function (o) {
+              o.setAttribute("aria-pressed", o === b);
+            });
+          });
+        });
+
+        /* scene engine */
+        scenes.forEach(function (s, i) {
+          s.inert = true;
+          var b = document.createElement("button");
+          b.innerHTML = "<i></i><span>" + s.dataset.title + "</span>";
+          b.setAttribute("aria-label", "Go to " + s.dataset.title);
+          b.addEventListener("click", function (e) {
+            go(i, e.clientX, e.clientY);
+          });
+          rail.appendChild(b);
+        });
+        function ui() {
+          [].forEach.call(rail.children, function (b, i) {
+            b.setAttribute("aria-current", i === cur);
+          });
+          prev.disabled = cur <= 0;
+          next.disabled = cur >= scenes.length - 1;
+        }
+        function settle(to) {
+          scenes.forEach(function (s) {
+            s.classList.remove("active", "enter", "play");
+            s.inert = true;
+          });
+          to.classList.add("active", "play");
+          to.inert = false;
+          to.setAttribute("tabindex", "-1");
+          to.focus({ preventScroll: true });
+          busy = false;
+          ui();
+        }
+        function go(n, x, y) {
+          if (busy || n === cur || n < 0 || n >= scenes.length) return;
+          var to = scenes[n],
+            from = scenes[cur];
+          history.replaceState(null, "", "#" + (n + 1));
+          if (x == null) {
+            x = innerWidth / 2;
+            y = innerHeight / 2;
+          }
+          cur = n;
+          if (!from || reduce) {
+            settle(to);
+            return;
+          }
+          busy = true;
+          to.inert = false;
+          to.classList.add("enter", "play");
+          to.animate(
+            [
+              { clipPath: "circle(0px at " + x + "px " + y + "px)" },
+              { clipPath: "circle(150vmax at " + x + "px " + y + "px)" },
+            ],
+            { duration: 850, easing: "cubic-bezier(.65,0,.35,1)" },
+          ).finished.then(
+            function () {
+              settle(to);
+            },
+            function () {
+              settle(to);
+            },
+          );
+        }
+        function centre(el) {
+          var r = el.getBoundingClientRect();
+          return [r.left + r.width / 2, r.top + r.height / 2];
+        }
+        next.addEventListener("click", function () {
+          var c = centre(next);
+          go(cur + 1, c[0], c[1]);
+        });
+        prev.addEventListener("click", function () {
+          var c = centre(prev);
+          go(cur - 1, c[0], c[1]);
+        });
+        document.addEventListener("click", function (e) {
+          if (e.target.closest("[data-next]"))
+            go(cur + 1, e.clientX, e.clientY);
+        });
+        addEventListener("keydown", function (e) {
+          if (e.target.closest("[role=tab]")) return;
+          if (e.key === "ArrowRight" || e.key === "PageDown") go(cur + 1);
+          if (e.key === "ArrowLeft" || e.key === "PageUp") go(cur - 1);
+        });
+        var lock = 0;
+        addEventListener(
+          "wheel",
+          function (e) {
+            var now = Date.now();
+            if (now - lock < 1100 || Math.abs(e.deltaY) < 40) return;
+            var sc = scenes[cur];
+            if (sc && sc.scrollHeight > sc.clientHeight + 4) return;
+            lock = now;
+            go(cur + (e.deltaY > 0 ? 1 : -1));
+          },
+          { passive: true },
+        );
+        var sx, sy;
+        addEventListener(
+          "touchstart",
+          function (e) {
+            sx = e.touches[0].clientX;
+            sy = e.touches[0].clientY;
+          },
+          { passive: true },
+        );
+        addEventListener(
+          "touchend",
+          function (e) {
+            var t = e.changedTouches[0],
+              dx = t.clientX - sx,
+              dy = t.clientY - sy;
+            if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.5)
+              go(cur + (dx < 0 ? 1 : -1), t.clientX, t.clientY);
+          },
+          { passive: true },
+        );
+        addEventListener("hashchange", function () {
+          var n = parseInt(location.hash.slice(1), 10) - 1;
+          if (n >= 0) go(n);
+        });
+
+        /* tab helper */
+        function tabs(host, items, onPick) {
+          items.forEach(function (it, i) {
+            var b = document.createElement("button");
+            b.setAttribute("role", "tab");
+            b.innerHTML = it.html || it.label;
+            b.addEventListener("click", function () {
+              pick(i);
+            });
+            b.addEventListener("keydown", function (e) {
+              var k = e.key,
+                n =
+                  k === "ArrowDown" || k === "ArrowRight"
+                    ? i + 1
+                    : k === "ArrowUp" || k === "ArrowLeft"
+                      ? i - 1
+                      : -1;
+              if (n >= 0 && n < items.length) {
+                e.preventDefault();
+                pick(n, true);
+              }
+            });
+            host.appendChild(b);
+          });
+          function pick(i, focus) {
+            [].forEach.call(host.children, function (b, j) {
+              b.setAttribute("aria-selected", j === i);
+              b.tabIndex = j === i ? 0 : -1;
+            });
+            onPick(i);
+            if (focus) host.children[i].focus();
+          }
+          pick(0);
+        }
+
+        /* image slot: shows your export if the file exists, otherwise a labelled placeholder */
+        function slot(el, src, label, g) {
+          var im = new Image();
+          im.alt = label;
+          im.onload = function () {
+            el.innerHTML = "";
+            el.appendChild(im);
+            el.classList.add("has");
+            el.style.setProperty("--g", g == null ? 0 : g);
+          };
+          im.onerror = function () {
+            el.classList.remove("has");
+            el.innerHTML =
+              '<div class="ph"><b>' +
+              label +
+              "</b>Add your export as <code>" +
+              src +
+              "</code></div>";
+          };
+          im.src = src;
+        }
+
+        /* 2 personas */
+        var P = [
+          [
+            "Ritika, 29",
+            "../images/persona-ritika.jpg",
+            "Ritika: \u201cI need it fast, I need it done perfectly!\u201d Goals, frustrations and a short profile.",
+          ],
+          [
+            "Ramvilas, 47",
+            "../images/persona-ramvilas.jpg",
+            "Ramvilas: \u201cI need to save money for a better future.\u201d Goals, frustrations and a short profile.",
+          ],
+          [
+            "Halima, 65",
+            "../images/persona-halima.jpg",
+            "Halima: \u201cI have taken care of others all my life, don\u2019t like to depend on others now.\u201d Goals, frustrations and a short profile.",
+          ],
+        ];
+        tabs(
+          $("ptabs"),
+          P.map(function (p) {
+            return { label: p[0] };
+          }),
+          function (i) {
+            var m = $("pimg");
+            m.src = "../images/" + P[i][1];
+            m.alt = P[i][2];
+          },
+        );
+
+        /* 3 journey map */
+        slot($("jm"), "../images/journey-map.png", "Ritika\u2019s journey map");
+
+        /* 4 design iterations */
+        var D = [
+          [
+            "Storyboard",
+            "Halima loves cake and finally finds a site that is easy to use and lists healthy alternatives.",
+            1,
+          ],
+          [
+            "User flow",
+            "Open app, Home, Search cakes, Select an item, Product detail, Confirm or add, Cart, Address, Payment method, Order confirmation.",
+            1,
+          ],
+          [
+            "Paper wireframes",
+            "Rough sketches on paper to find the layout fast.",
+            1,
+          ],
+          [
+            "Digital wireframes",
+            "Order by phone and language options for people less comfortable with the app or English. Easier filters and top offers first.",
+            0.85,
+          ],
+          [
+            "Low-fi prototype",
+            "A clickable prototype of the search flow, to try it before styling anything.",
+            0.6,
+          ],
+          [
+            "Usability study",
+            "What I learned in testing moved the work from appealing designs to user-centred, accessible design.",
+            0.3,
+          ],
+          [
+            "High-fi prototype",
+            "Mockups, then a high-fidelity prototype: top offers, a Hindi selector, three text sizes and a phone icon to order by call.",
+            0,
+          ],
+        ];
+        var BRAND = [
+          ["DarkBrown", "#75372A"],
+          ["MidBrown", "#893813"],
+          ["LightBrown", "#B15C36"],
+          ["LightOrange", "#FDB343"],
+          ["DisabledGrey", "#C4C4C4"],
+          ["LightGreen", "#7FB56D"],
+          ["BorderGrey", "#7F7979"],
+          ["Black", "#000000"],
+        ];
+        tabs(
+          $("stages"),
+          D.map(function (d, i) {
+            return { html: "<b>" + (i + 1) + "</b>" + d[0] };
+          }),
+          function (i) {
+            slot(
+              $("df"),
+              "../images/design-" + (i + 1) + ".png",
+              D[i][0],
+              D[i][2],
+            );
+            $("dver").textContent = "Version " + (i + 1) + " of " + D.length;
+            var el = $("ddetail");
+            el.classList.remove("swap");
+            void el.offsetWidth;
+            el.innerHTML =
+              "<p>" +
+              D[i][1] +
+              "</p>" +
+              (i === 6
+                ? '<div class="swatches" role="img" aria-label="Apna Bakery style guide colours">' +
+                  BRAND.map(function (c) {
+                    return (
+                      '<i style="background:' +
+                      c[1] +
+                      '" title="' +
+                      c[0] +
+                      " " +
+                      c[1] +
+                      '"></i>'
+                    );
+                  }).join("") +
+                  '</div><p class="cap">The Apna Bakery style guide: a chocolate palette and Inter.</p>'
+                : "");
+            el.classList.add("swap");
+          },
+        );
+
+        /* 5 beta gallery */
+        var G = [
+          [
+            "Products",
+            "beta-products.jpg",
+            "The BuzzFest products page with cake cards, prices, ratings and category tags.",
+          ],
+          [
+            "Zoom",
+            "beta-product-zoom.jpg",
+            "A product image opened full size in a modal window.",
+          ],
+          [
+            "Cart",
+            "beta-cart.jpg",
+            "The cart with quantities, per-item notes and checkout details.",
+          ],
+          [
+            "Bakers",
+            "beta-bakers.jpg",
+            "The Our Bakers page with three home bakers.",
+          ],
+          [
+            "Mobile",
+            "beta-mobile.png",
+            "The home and products pages on a phone.",
+          ],
+        ];
+        tabs(
+          $("gal"),
+          G.map(function (g) {
+            return { label: g[0] };
+          }),
+          function (i) {
+            var m = $("gimg");
+            m.style.animation = "none";
+            void m.offsetWidth;
+            m.style.animation = "";
+            m.src = "../images/" + G[i][1];
+            m.alt = G[i][2];
+          },
+        );
+
+        var start = parseInt(location.hash.slice(1), 10) - 1;
+        go(start >= 0 && start < scenes.length ? start : 0);
+      })();
+    </script>
+  </body>
+</html>
