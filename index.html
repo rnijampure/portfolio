@@ -20,18 +20,15 @@
       content="Narrative designer &amp; content strategist with 15 years in digital products. Children's fiction, Hinglish drama, technical writing, and marketing copy."
     />
     <meta name="author" content="Rohini Nijampure" />
-    <meta name="robots" content="index, follow" />
-    <link
-      rel="canonical"
-      href="https://rnijampure.github.io/new-portfolio-design/"
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1"
     />
+    <link rel="canonical" href="https://rnijampure.github.io/portfolio/" />
     <meta name="theme-color" content="#16213A" />
 
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://rnijampure.github.io/new-portfolio-design/"
-    />
+    <meta property="og:url" content="https://rnijampure.github.io/portfolio/" />
     <meta property="og:site_name" content="Rohini Nijampure" />
     <meta property="og:locale" content="en_IN" />
     <meta
@@ -44,6 +41,7 @@
     />
 
     <meta name="twitter:card" content="summary" />
+    <link rel="sitemap" type="application/xml" href="sitemap.xml" />
     <meta
       name="twitter:title"
       content="Rohini Nijampure — Narrative Designer &amp; Content Strategist"
@@ -64,23 +62,89 @@
       rel="stylesheet"
     />
 
+    <style>
+      .skip-link {
+        position: absolute;
+        left: 12px;
+        top: -60px;
+        z-index: 1000;
+        padding: 10px 16px;
+        background: #d9a02c;
+        color: #16213a;
+        font-weight: 600;
+        border-radius: 6px;
+        text-decoration: none;
+      }
+      .skip-link:focus {
+        top: 12px;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Rohini Nijampure",
-        "alternateName": "Rohini N",
-        "jobTitle": "Narrative Designer & Content Strategist",
-        "url": "https://rnijampure.github.io/new-portfolio-design/",
-        "description": "Narrative designer and content strategist with fifteen years in digital products, writing across children's fiction, Hinglish drama, technical documentation, and marketing copy.",
-        "knowsLanguage": ["en", "hi"],
-        "sameAs": [
-          "https://www.behance.net/rohinin",
-          "https://hashnode.com/@frontender09",
-          "https://github.com/rnijampure",
-          "https://www.instagram.com/rnijampure/",
-          "http://linkedin.com/in/rohini-nijampure-1b5b7622",
-          "https://www.amazon.in/Swarna-Magical-Forest-Rohini-Nijampure/dp/8195077870"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://rnijampure.github.io/portfolio/#website",
+            "url": "https://rnijampure.github.io/portfolio/",
+            "name": "Rohini Nijampure — Portfolio",
+            "inLanguage": "en-IN",
+            "publisher": {
+              "@id": "https://rnijampure.github.io/portfolio/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://rnijampure.github.io/portfolio/#person",
+            "name": "Rohini Nijampure",
+            "alternateName": "Rohini N",
+            "jobTitle": "Narrative Designer & Content Strategist",
+            "url": "https://rnijampure.github.io/portfolio/",
+            "description": "Narrative designer and content strategist with fifteen years in digital products, writing across children's fiction, Hinglish drama, technical documentation, and marketing copy.",
+            "knowsLanguage": ["en", "hi"],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bengaluru",
+              "addressCountry": "IN"
+            },
+            "sameAs": [
+              "https://www.behance.net/rohinin",
+              "https://hashnode.com/@frontender09",
+              "https://github.com/rnijampure",
+              "https://www.instagram.com/rnijampure/",
+              "https://www.linkedin.com/in/rohini-nijampure-1b5b7622",
+              "https://medium.com/@rnijampure",
+              "https://www.amazon.in/Swarna-Magical-Forest-Rohini-Nijampure/dp/8195077870"
+            ]
+          },
+          {
+            "@type": "Article",
+            "@id": "https://medium.com/@rnijampure/the-second-innings-a-complete-guide-directory-to-restarting-your-career-after-a-break-47ad7daf83c6#article",
+            "headline": "The Second Innings: A Complete Guide & Directory to Restarting Your Career After a Break",
+            "url": "https://medium.com/@rnijampure/the-second-innings-a-complete-guide-directory-to-restarting-your-career-after-a-break-47ad7daf83c6",
+            "datePublished": "2026-10-20",
+            "inLanguage": "en",
+            "author": {
+              "@id": "https://rnijampure.github.io/portfolio/#person"
+            },
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "Medium",
+              "url": "https://medium.com/"
+            }
+          }
         ]
       }
     </script>
@@ -1188,14 +1252,16 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div class="progress" id="progress"></div>
 
-    <nav class="site-nav" id="siteNav">
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
       <a href="#top" class="brand">Rohini N.</a>
       <div class="nav-right">
         <div class="nav-menu" id="navMenu">
           <ul class="nav-links">
             <li><a href="#featured">BuzzFest</a></li>
+            <li><a href="product_journey/index.html">Product Journey</a></li>
             <li><a href="#work">Writing</a></li>
             <li><a href="design.html">UX / Design</a></li>
             <li><a href="#about">About</a></li>
@@ -1244,7 +1310,13 @@
             />
           </svg>
         </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle menu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+        >
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -1260,1051 +1332,1094 @@
       </div>
     </nav>
 
-    <!-- ============ HERO ============ -->
-    <header class="hero" id="top">
-      <div class="hero-bg">
-        <div class="scene scene-night">
-          <svg
-            aria-hidden="true"
-            class="hero-layer"
-            data-speed="0.15"
-            id="starsLayer"
-            viewBox="0 0 1600 900"
-            preserveAspectRatio="xMidYMid slice"
-          >
-            <defs>
-              <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#D9A02C" stop-opacity="0.55" />
-                <stop offset="100%" stop-color="#D9A02C" stop-opacity="0" />
-              </radialGradient>
-            </defs>
-            <circle
-              cx="1310"
-              cy="150"
-              r="120"
-              fill="url(#moonGlow)"
-              class="moon-glow"
-            />
-            <circle cx="1310" cy="150" r="52" fill="#F2EAD9" />
-            <circle cx="1290" cy="132" r="46" fill="#16213A" />
-            <g id="starGroup"></g>
-          </svg>
-          <svg
-            aria-hidden="true"
-            class="hero-layer"
-            data-speed="0.35"
-            viewBox="0 0 1600 900"
-            preserveAspectRatio="xMidYMid slice"
-          >
-            <path
-              d="M0,620 C220,560 380,660 560,600 C760,535 900,650 1120,580 C1300,525 1440,610 1600,560 L1600,900 L0,900 Z"
-              fill="#202D4E"
-            />
-          </svg>
-          <svg
-            aria-hidden="true"
-            class="hero-layer"
-            data-speed="0.55"
-            viewBox="0 0 1600 900"
-            preserveAspectRatio="xMidYMid slice"
-          >
-            <path
-              d="M0,720 L60,660 120,710 200,630 260,690 340,600 420,700 500,640 580,710 660,650 740,720 820,660 900,715 980,645 1060,705 1140,655 1220,715 1300,660 1380,710 1460,650 1540,705 1600,670 L1600,900 L0,900 Z"
-              fill="#16213A"
-            />
-            <g
-              class="fish"
-              style="
-                offset-path: path(
-                  &quot;M 120 560 C 500 380, 900 380, 1420 540&quot;
-                );
-              "
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <header class="hero" id="top">
+        <div class="hero-bg">
+          <div class="scene scene-night">
+            <svg
+              aria-hidden="true"
+              class="hero-layer"
+              data-speed="0.15"
+              id="starsLayer"
+              viewBox="0 0 1600 900"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <defs>
+                <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#D9A02C" stop-opacity="0.55" />
+                  <stop offset="100%" stop-color="#D9A02C" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <circle
+                cx="1310"
+                cy="150"
+                r="120"
+                fill="url(#moonGlow)"
+                class="moon-glow"
+              />
+              <circle cx="1310" cy="150" r="52" fill="#F2EAD9" />
+              <circle cx="1290" cy="132" r="46" fill="#16213A" />
+              <g id="starGroup"></g>
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="hero-layer"
+              data-speed="0.35"
+              viewBox="0 0 1600 900"
+              preserveAspectRatio="xMidYMid slice"
             >
               <path
-                d="M0,0 C10,-8 22,-8 30,0 C22,8 10,8 0,0 Z M-10,0 L-18,-7 L-18,7 Z"
-                fill="#D9A02C"
-                opacity="0.85"
+                d="M0,620 C220,560 380,660 560,600 C760,535 900,650 1120,580 C1300,525 1440,610 1600,560 L1600,900 L0,900 Z"
+                fill="#202D4E"
               />
-            </g>
-          </svg>
-        </div>
-        <div class="scene scene-day">
-          <svg
-            aria-hidden="true"
-            class="hero-layer"
-            data-speed="0.15"
-            viewBox="0 0 1600 900"
-            preserveAspectRatio="xMidYMid slice"
-          >
-            <defs>
-              <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#FFD23F" stop-opacity="0.9" />
-                <stop offset="100%" stop-color="#FFD23F" stop-opacity="0" />
-              </radialGradient>
-            </defs>
-            <circle cx="1310" cy="150" r="150" fill="url(#sunGlow)" />
-            <circle cx="1310" cy="150" r="58" fill="#FFFCF7" />
-            <ellipse
-              cx="260"
-              cy="130"
-              rx="92"
-              ry="26"
-              fill="#FFFCF7"
-              opacity="0.5"
-            />
-            <ellipse
-              cx="350"
-              cy="158"
-              rx="66"
-              ry="19"
-              fill="#FFFCF7"
-              opacity="0.4"
-            />
-            <ellipse
-              cx="800"
-              cy="95"
-              rx="80"
-              ry="22"
-              fill="#FFFCF7"
-              opacity="0.4"
-            />
-          </svg>
-          <svg
-            aria-hidden="true"
-            class="hero-layer"
-            data-speed="0.35"
-            viewBox="0 0 1600 900"
-            preserveAspectRatio="xMidYMid slice"
-          >
-            <path
-              d="M0,620 C220,560 380,660 560,600 C760,535 900,650 1120,580 C1300,525 1440,610 1600,560 L1600,900 L0,900 Z"
-              fill="#5FB84A"
-            />
-          </svg>
-          <svg
-            aria-hidden="true"
-            class="hero-layer"
-            data-speed="0.55"
-            viewBox="0 0 1600 900"
-            preserveAspectRatio="xMidYMid slice"
-          >
-            <path
-              d="M0,720 L60,660 120,710 200,630 260,690 340,600 420,700 500,640 580,710 660,650 740,720 820,660 900,715 980,645 1060,705 1140,655 1220,715 1300,660 1380,710 1460,650 1540,705 1600,670 L1600,900 L0,900 Z"
-              fill="#256B14"
-            />
-            <g
-              class="fish"
-              style="
-                offset-path: path(
-                  &quot;M 120 560 C 500 380, 900 380, 1420 540&quot;
-                );
-              "
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="hero-layer"
+              data-speed="0.55"
+              viewBox="0 0 1600 900"
+              preserveAspectRatio="xMidYMid slice"
             >
               <path
-                d="M0,0 C10,-8 22,-8 30,0 C22,8 10,8 0,0 Z M-10,0 L-18,-7 L-18,7 Z"
-                fill="#E0116F"
-                opacity="0.9"
+                d="M0,720 L60,660 120,710 200,630 260,690 340,600 420,700 500,640 580,710 660,650 740,720 820,660 900,715 980,645 1060,705 1140,655 1220,715 1300,660 1380,710 1460,650 1540,705 1600,670 L1600,900 L0,900 Z"
+                fill="#16213A"
               />
-            </g>
-          </svg>
+              <g
+                class="fish"
+                style="
+                  offset-path: path(
+                    &quot;M 120 560 C 500 380, 900 380, 1420 540&quot;
+                  );
+                "
+              >
+                <path
+                  d="M0,0 C10,-8 22,-8 30,0 C22,8 10,8 0,0 Z M-10,0 L-18,-7 L-18,7 Z"
+                  fill="#D9A02C"
+                  opacity="0.85"
+                />
+              </g>
+            </svg>
+          </div>
+          <div class="scene scene-day">
+            <svg
+              aria-hidden="true"
+              class="hero-layer"
+              data-speed="0.15"
+              viewBox="0 0 1600 900"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <defs>
+                <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#FFD23F" stop-opacity="0.9" />
+                  <stop offset="100%" stop-color="#FFD23F" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx="1310" cy="150" r="150" fill="url(#sunGlow)" />
+              <circle cx="1310" cy="150" r="58" fill="#FFFCF7" />
+              <ellipse
+                cx="260"
+                cy="130"
+                rx="92"
+                ry="26"
+                fill="#FFFCF7"
+                opacity="0.5"
+              />
+              <ellipse
+                cx="350"
+                cy="158"
+                rx="66"
+                ry="19"
+                fill="#FFFCF7"
+                opacity="0.4"
+              />
+              <ellipse
+                cx="800"
+                cy="95"
+                rx="80"
+                ry="22"
+                fill="#FFFCF7"
+                opacity="0.4"
+              />
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="hero-layer"
+              data-speed="0.35"
+              viewBox="0 0 1600 900"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <path
+                d="M0,620 C220,560 380,660 560,600 C760,535 900,650 1120,580 C1300,525 1440,610 1600,560 L1600,900 L0,900 Z"
+                fill="#5FB84A"
+              />
+            </svg>
+            <svg
+              aria-hidden="true"
+              class="hero-layer"
+              data-speed="0.55"
+              viewBox="0 0 1600 900"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <path
+                d="M0,720 L60,660 120,710 200,630 260,690 340,600 420,700 500,640 580,710 660,650 740,720 820,660 900,715 980,645 1060,705 1140,655 1220,715 1300,660 1380,710 1460,650 1540,705 1600,670 L1600,900 L0,900 Z"
+                fill="#256B14"
+              />
+              <g
+                class="fish"
+                style="
+                  offset-path: path(
+                    &quot;M 120 560 C 500 380, 900 380, 1420 540&quot;
+                  );
+                "
+              >
+                <path
+                  d="M0,0 C10,-8 22,-8 30,0 C22,8 10,8 0,0 Z M-10,0 L-18,-7 L-18,7 Z"
+                  fill="#E0116F"
+                  opacity="0.9"
+                />
+              </g>
+            </svg>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-content">
-        <p class="hero-kicker">
-          <span class="dot"></span> Bangalore, India — writing across formats
-          since 2011
-        </p>
-        <h1>Rohini N</h1>
-        <p class="role">Narrative Designer &amp; Content Strategist</p>
-        <p class="lede">
-          Fifteen years building digital products. Three-plus years writing with
-          AI-augmented workflows. One lifelong habit of turning a blank page
-          into something a reader won't put down.
-        </p>
-        <div class="tag-row">
-          <span class="pill">Native Hindi · Hinglish dialogue</span>
-          <span class="pill">Fiction &amp; technical writing</span>
-          <span class="pill">UX architect</span>
-        </div>
-        <div class="hero-actions">
-          <a href="#work" class="btn btn-primary">Read the chapters</a>
-          <a href="#contact" class="btn btn-ghost-light start-a-project"></a>
-        </div>
-        <div class="find-me">
-          <span class="find-me-label">Find the work:</span>
-          <a
-            href="https://www.behance.net/rohinin"
-            target="_blank"
-            rel="noopener"
-            >Behance</a
-          >
-          <a
-            href="https://hashnode.com/@frontender09"
-            target="_blank"
-            rel="noopener"
-            >Hashnode</a
-          >
-          <a href="https://github.com/rnijampure" target="_blank" rel="noopener"
-            >GitHub</a
-          >
-          <a
-            href="https://www.instagram.com/rnijampure/"
-            target="_blank"
-            rel="noopener"
-            >Instagram</a
-          >
-          <a
-            href="http://linkedin.com/in/rohini-nijampure-1b5b7622"
-            target="_blank"
-            rel="noopener"
-            >LinkedIn</a
-          >
-        </div>
-      </div>
-      <div class="scroll-cue"><span class="line"></span> scroll</div>
-    </header>
-
-    <!-- ============ FEATURED PROJECT: BUZZFEST ============ -->
-    <section class="band band-ink bf" id="featured">
-      <div class="inner">
-        <div class="reveal">
-          <span class="bf-badge">Featured project · product writing</span>
-          <h2>Documentation that matches what the product really does</h2>
-          <p class="bf-lede">
-            BuzzFest is a concept home-baker ordering marketplace that I
-            researched, designed and built as a beta. These are the documents I
-            wrote for it, each checked against the live site, the database
-            schema and sample data.
+        <div class="hero-content">
+          <p class="hero-kicker">
+            <span class="dot"></span> Bangalore, India — writing across formats
+            since 2011
           </p>
-          <div class="hero-actions" style="margin-top: 28px">
+          <h1>
+            Rohini N<span class="sr-only">
+              (Rohini Nijampure), Narrative designer and content
+              strategist</span
+            >
+          </h1>
+          <p class="role">Narrative Designer &amp; Content Strategist</p>
+          <p class="lede">
+            Fifteen years building digital products. Three-plus years writing
+            with AI-augmented workflows. One lifelong habit of turning a blank
+            page into something a reader won't put down.
+          </p>
+          <div class="tag-row">
+            <span class="pill">Native Hindi · Hinglish dialogue</span>
+            <span class="pill">Fiction &amp; technical writing</span>
+            <span class="pill">UX architect</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">Read the chapters</a>
+            <a href="#contact" class="btn btn-ghost-light start-a-project"></a>
+          </div>
+          <div class="find-me">
+            <span class="find-me-label">Find the work:</span>
             <a
-              class="btn btn-primary"
-              href="https://buzz-fest.vercel.app/"
+              href="https://www.behance.net/rohinin"
               target="_blank"
               rel="noopener"
-              >Open the live beta</a
+              >Behance</a
             >
-            <a class="btn btn-ghost-light" href="design.html#featured"
-              >See the design side</a
+            <a
+              href="https://hashnode.com/@frontender09"
+              target="_blank"
+              rel="noopener"
+              >Hashnode</a
+            >
+            <a
+              href="https://github.com/rnijampure"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              href="https://www.instagram.com/rnijampure/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              href="https://www.linkedin.com/in/rohini-nijampure-1b5b7622"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
             >
           </div>
         </div>
-        <div class="bf-grid reveal">
-          <div>
-            <ol class="bf-rail">
-              <li>
-                <b>Research</b
-                ><span
-                  >Four pain points and three personas behind the goal
-                  statement.</span
-                >
-              </li>
-              <li>
-                <b>Design</b
-                ><span
-                  >Wireframes, a prototype and a chocolate-themed style guide,
-                  built in Figma.</span
-                >
-              </li>
-              <li>
-                <b>Build</b
-                ><span
-                  >A live beta in Next.js and PostgreSQL: browse bakers, add to
-                  cart, place an order.</span
-                >
-              </li>
-              <li>
-                <b>Document</b
-                ><span
-                  >Product and technical documentation, checked against the live
-                  site and the schema.</span
-                >
-              </li>
-            </ol>
+        <div class="scroll-cue"><span class="line"></span> scroll</div>
+      </header>
+
+      <!-- ============ FEATURED PROJECT: BUZZFEST ============ -->
+      <section class="band band-ink bf" id="featured">
+        <div class="inner">
+          <div class="reveal">
+            <span class="bf-badge">Featured project · product writing</span>
+            <h2>Documentation that matches what the product really does</h2>
+            <p class="bf-lede">
+              BuzzFest is a concept home-baker ordering marketplace that I
+              researched, designed and built as a beta. These are the documents
+              I wrote for it, each checked against the live site, the database
+              schema and sample data.
+            </p>
+            <div class="hero-actions" style="margin-top: 28px">
+              <a
+                class="btn btn-primary"
+                href="https://buzz-fest.vercel.app/"
+                target="_blank"
+                rel="noopener"
+                >Open the live beta</a
+              >
+              <a class="btn btn-ghost-light" href="design.html#featured"
+                >See the design side</a
+              >
+            </div>
           </div>
-          <div>
-            <div class="bf-docs">
-              <div class="bf-doc">
-                <span class="bf-status">Available now</span>
-                <h3>Product documentation</h3>
-                <p>
-                  What BuzzFest is, who it is for and what works today. Every
-                  claim is checked against the live site, the database schema
-                  and sample data, and the known limitations are listed.
-                </p>
-                <div class="bf-links">
-                  <a
-                    class="btn btn-ghost-light"
-                    href="assets/buzzfest-product-documentation.pdf"
-                    >Read the document</a
-                  ><a
-                    class="btn btn-ghost-light"
-                    href="https://buzz-fest.vercel.app/"
-                    target="_blank"
-                    rel="noopener"
-                    >Live beta</a
+          <div class="bf-grid reveal">
+            <div>
+              <ol class="bf-rail">
+                <li>
+                  <b>Research</b
+                  ><span
+                    >Four pain points and three personas behind the goal
+                    statement.</span
                   >
+                </li>
+                <li>
+                  <b>Design</b
+                  ><span
+                    >Wireframes, a prototype and a chocolate-themed style guide,
+                    built in Figma.</span
+                  >
+                </li>
+                <li>
+                  <b>Build</b
+                  ><span
+                    >A live beta in Next.js and PostgreSQL: browse bakers, add
+                    to cart, place an order.</span
+                  >
+                </li>
+                <li>
+                  <b>Document</b
+                  ><span
+                    >Product and technical documentation, checked against the
+                    live site and the schema.</span
+                  >
+                </li>
+              </ol>
+            </div>
+            <div>
+              <div class="bf-docs">
+                <div class="bf-doc">
+                  <span class="bf-status">Available now</span>
+                  <h3>Product documentation</h3>
+                  <p>
+                    What BuzzFest is, who it is for and what works today. Every
+                    claim is checked against the live site, the database schema
+                    and sample data, and the known limitations are listed.
+                  </p>
+                  <div class="bf-links">
+                    <a
+                      class="btn btn-ghost-light"
+                      href="assets/buzzfest-product-documentation.pdf"
+                      >Read the document</a
+                    ><a
+                      class="btn btn-ghost-light"
+                      href="https://buzz-fest.vercel.app/"
+                      target="_blank"
+                      rel="noopener"
+                      >Live beta</a
+                    >
+                  </div>
+                </div>
+                <div class="bf-doc">
+                  <span class="bf-status">In progress</span>
+                  <h3>Technical documentation</h3>
+                  <p>
+                    Architecture, data model and setup for developers, written
+                    from the repository and the Prisma schema.
+                  </p>
+                  <div class="bf-links">
+                    <a
+                      class="btn btn-ghost-light"
+                      href="assets/buzzfest-techinical-documentation.pdf"
+                      target="_blank"
+                      rel="noopener"
+                      >View Technical Documentation</a
+                    >
+                  </div>
+                </div>
+                <div class="bf-doc">
+                  <span class="bf-status">Case study</span>
+                  <h3>Product journey</h3>
+                  <p>
+                    The research, personas, journey map, wireframes and style
+                    guide that shaped the product.
+                  </p>
+                  <div class="bf-links">
+                    <a
+                      class="btn btn-ghost-light"
+                      href="product_journey/index.html"
+                      >Explore the journey</a
+                    ><a
+                      class="btn btn-ghost-light"
+                      href="assets/buzzfest-product-journey.pdf"
+                      >Read the case study</a
+                    ><a
+                      class="btn btn-ghost-light"
+                      href="https://docs.google.com/presentation/d/1LEFaP4QtHL6kJTGzFGF35TZScXkSBKyGo-bjZ685E84/edit?usp=drive_link"
+                      target="_blank"
+                      rel="noopener"
+                      >Open the slides</a
+                    >
+                  </div>
                 </div>
               </div>
-              <div class="bf-doc">
-                <span class="bf-status">In progress</span>
-                <h3>Technical documentation</h3>
-                <p>
-                  Architecture, data model and setup for developers, written
-                  from the repository and the Prisma schema.
-                </p>
-                <div class="bf-links">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="band band-paper" id="about">
+        <div class="fold fold-to-paper"></div>
+        <div class="inner">
+          <div class="about-grid">
+            <div class="about-copy reveal">
+              <span class="eyebrow-mark">Two crafts, one instinct</span>
+              <h2
+                style="
+                  margin: 14px 0 26px;
+                  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+                "
+              >
+                About the writer behind the interface
+              </h2>
+              <p>
+                For fifteen years, I worked inside digital products — as a UX
+                and frontend architect and product designer — understanding what
+                customers need, where they hesitate, and what makes an
+                experience work for them. I've worked across UX, UI, interaction
+                design, visual design, information architecture, and frontend
+                implementation, adapting the end product based on both user
+                needs and business goals.
+              </p>
+
+              <p>
+                Over the last few years I've leaned into AI-augmented writing
+                tools — Claude, Sudowrite — to work faster without writing
+                thinner, using reader feedback and retention the same way I'd
+                use product analytics: to find exactly where a scene, a
+                paragraph, or a screen is losing people, and rewrite until it
+                doesn't.
+              </p>
+              <p>
+                Alongside my technology and design career, I’ve maintained a
+                parallel practice in writing: children’s fantasy, historical
+                romance, Hinglish family drama, curriculum content, technical
+                documentation, and brand copy.
+              </p>
+              <p>
+                Over time, writing, design, and technology have become different
+                expressions of the same instinct: understand the audience,
+                communicate clearly, and create something that works.
+              </p>
+            </div>
+            <div class="stat-list reveal">
+              <div class="stat">
+                <b>15+</b><span>years in digital products</span>
+              </div>
+              <div class="stat"><b>2</b><span>published books</span></div>
+              <div class="stat">
+                <b>8</b><span>writing disciplines, one process</span>
+              </div>
+              <div class="stat">
+                <b>3</b
+                ><span>languages of dialogue: English, Hindi, Hinglish</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SERVICES ============ -->
+      <section class="band band-paper-alt" id="services">
+        <div class="inner">
+          <div class="section-head reveal">
+            <h2>What I create</h2>
+            <p>
+              Every project starts the same way: what does this page need to do,
+              and for whom? The discipline changes; the question doesn't.
+            </p>
+          </div>
+          <div class="services-grid reveal">
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 20l4.5-1.2L19 8.3a2 2 0 0 0 0-2.8l-.5-.5a2 2 0 0 0-2.8 0L5.2 15.5 4 20z"
+                />
+                <path d="M13.5 6.5l4 4" />
+              </svg>
+              <h3>Content &amp; marketing copy</h3>
+              <p>
+                Buyer's guides, product features, and lifestyle writing that
+                reads like advice from a friend, not a spec sheet.
+              </p>
+            </div>
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 9l-4 3 4 3" />
+                <path d="M16 9l4 3-4 3" />
+                <path d="M13 6l-2 12" />
+              </svg>
+              <h3>Technical &amp; developer docs</h3>
+              <p>
+                Frontend architecture, accessibility, and how-it-works guides
+                written for the reader who's stuck at 2am.
+              </p>
+            </div>
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="7" cy="8" r="2.5" />
+                <circle cx="17" cy="16" r="2.5" />
+                <path d="M9 9.5l6 5" />
+              </svg>
+              <h3>Narrative design &amp; scripts</h3>
+              <p>
+                Dialogue-driven, cliffhanger-paced episodes for episodic and
+                vertical formats, tuned against retention data.
+              </p>
+            </div>
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="5" y="4" width="14" height="17" rx="1" />
+                <path d="M9 9h6M9 13h6M9 17h3" />
+              </svg>
+              <h3>Children's &amp; educational writing</h3>
+              <p>
+                Curriculum-aligned school content and original picture-book
+                storytelling for young readers.
+              </p>
+            </div>
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="10" cy="10" r="6" />
+                <path d="M14.5 14.5L20 20" />
+              </svg>
+              <h3>Editorial reviews &amp; editing</h3>
+              <p>
+                Honest, structured reviews and line edits that respect a
+                writer's voice while sharpening it.
+              </p>
+            </div>
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="4" y="5" width="16" height="14" rx="1" />
+                <path d="M4 9h16M9 9v10" />
+              </svg>
+              <h3>UX &amp; product content</h3>
+              <p>
+                Interfaces, onboarding flows, and product copy designed by
+                someone who's shipped both sides of the screen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ WORK: TOC + CHAPTERS ============ -->
+      <section class="band band-ink" id="work">
+        <div class="fold fold-to-ink"></div>
+        <div class="inner">
+          <div class="section-head reveal">
+            <h2>The work, chapter by chapter</h2>
+            <p>
+              Eight kinds of writing. One way of thinking about an audience.
+              Here are some samples for you!
+            </p>
+          </div>
+          <div class="toc-list reveal">
+            <a href="#chapter-1" class="toc-row"
+              ><span class="toc-num">I</span
+              ><span class="toc-title">Children's Books &amp; Reviews</span
+              ><span class="toc-fill"></span
+              ><span class="toc-count">3 pieces</span></a
+            >
+            <a href="#chapter-2" class="toc-row"
+              ><span class="toc-num">II</span
+              ><span class="toc-title">Fiction &amp; Hinglish Storytelling</span
+              ><span class="toc-fill"></span
+              ><span class="toc-count">1 piece</span></a
+            >
+            <a href="#chapter-3" class="toc-row"
+              ><span class="toc-num">III</span
+              ><span class="toc-title">Academic &amp; Educational Writing</span
+              ><span class="toc-fill"></span
+              ><span class="toc-count">2 pieces</span></a
+            >
+            <a href="#chapter-4" class="toc-row"
+              ><span class="toc-num">IV</span
+              ><span class="toc-title">Marketing &amp; Buyer's Guides</span
+              ><span class="toc-fill"></span
+              ><span class="toc-count">1 piece</span></a
+            >
+            <a href="#chapter-5" class="toc-row"
+              ><span class="toc-num">V</span
+              ><span class="toc-title">Career &amp; Soft-Skills Writing</span
+              ><span class="toc-fill"></span
+              ><span class="toc-count">2 pieces</span></a
+            >
+            <a href="#chapter-6" class="toc-row"
+              ><span class="toc-num">VI</span
+              ><span class="toc-title">Lifestyle &amp; Personal Essays</span
+              ><span class="toc-fill"></span
+              ><span class="toc-count">3 pieces</span></a
+            >
+            <a href="#chapter-7" class="toc-row"
+              ><span class="toc-num">VII</span
+              ><span class="toc-title"
+                >Technical Writing &amp; Accessibility</span
+              ><span class="toc-fill"></span
+              ><span class="toc-count">3 pieces</span></a
+            >
+            <a href="#chapter-8" class="toc-row"
+              ><span class="toc-num">VIII</span
+              ><span class="toc-title">UX &amp; Product Design</span
+              ><span class="toc-fill"></span
+              ><span class="toc-count">5 pieces</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="band band-paper">
+        <div class="fold fold-to-paper"></div>
+        <div class="inner">
+          <article class="chapter reveal" id="chapter-1">
+            <div class="chapter-marker">
+              <span class="num">I</span>
+              <span class="kicker">Children's Books &amp; Reviews</span>
+            </div>
+            <div class="chapter-body">
+              <h3>Where I started, and still return to</h3>
+              <p>
+                Original picture-book fantasy, alongside honest reviews of other
+                people's children's books — read with the specific, unglamorous
+                eye of someone who has to make an eight-year-old ask for one
+                more chapter.
+              </p>
+              <ul class="piece-list">
+                <li>
                   <a
-                    class="btn btn-ghost-light"
-                    href="assets/buzzfest-techinical-documentation.pdf"
+                    class="piece"
+                    href="https://www.amazon.in/Swarna-Magical-Forest-Rohini-Nijampure/dp/8195077870"
                     target="_blank"
                     rel="noopener"
-                    >View Technical Documentation</a
+                    ><span class="piece-title"
+                      >Swarna and the Magical Forest</span
+                    ><span class="piece-tag">Children's fantasy · Book</span></a
                   >
-                </div>
-              </div>
-              <div class="bf-doc">
-                <span class="bf-status">Case study</span>
-                <h3>Product journey</h3>
-                <p>
-                  The research, personas, journey map, wireframes and style
-                  guide that shaped the product.
-                </p>
-                <div class="bf-links">
+                </li>
+                <li>
                   <a
-                    class="btn btn-ghost-light"
-                    href="assets/buzzfest-product-journey.pdf"
-                    >Read the case study</a
-                  ><a
-                    class="btn btn-ghost-light"
-                    href="https://docs.google.com/presentation/d/1LEFaP4QtHL6kJTGzFGF35TZScXkSBKyGo-bjZ685E84/edit?usp=drive_link"
+                    class="piece"
+                    href="https://simplestoriesforbedtime.blogspot.com/2018/09/the-princes-pride.html"
                     target="_blank"
                     rel="noopener"
-                    >Open the slides</a
+                    ><span class="piece-title">The Prince's Pride</span
+                    ><span class="piece-tag">Children's fantasy · Book</span></a
                   >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://simplestoriesforbedtime.blogspot.com/2017/11/the-sparrow-and-fox.html"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title">The Sparrow and the Fox</span
+                    ><span class="piece-tag"
+                      >Children's fantasy · Story</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://coffee-and-a-book-and-me.blogspot.com/2022/03/my-muddy-puddle-review.html"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title">My Muddy Puddle — A Review</span
+                    ><span class="piece-tag">Book review · 2022</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="chapter reveal" id="chapter-2">
+            <div class="chapter-marker">
+              <span class="num">II</span>
+              <span class="kicker">Fiction &amp; Hinglish Storytelling</span>
+              <span class="dev" lang="hi">कहानी</span>
+            </div>
+            <div class="chapter-body">
+              <h3>Written in the way people actually talk</h3>
+              <p>
+                Family, friendship, and the things people don't say out loud —
+                in the code-switching rhythm of how urban India actually speaks.
+                Dialogue carries the story; the silences between the lines carry
+                the rest.
+              </p>
+              <ul class="piece-list">
+                <li>
+                  <a
+                    class="piece"
+                    href="https://in-my-imagination-a-short-story.blogspot.com/2018/09/sunita-doctors-live-and-love-story.html"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Sunita — A Doctor's Life and Love Story</span
+                    ><span class="piece-tag">Short fiction · 2018</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="chapter reveal" id="chapter-3">
+            <div class="chapter-marker">
+              <span class="num">III</span>
+              <span class="kicker">Academic &amp; Educational Writing</span>
+            </div>
+            <div class="chapter-body">
+              <h3>Built for the CBSE classroom</h3>
+              <p>
+                Curriculum-aligned explainers for school projects — dense enough
+                to be useful, light enough that a ten-year-old finishes it
+                without being told to.
+              </p>
+              <ul class="piece-list">
+                <li>
+                  <a
+                    class="piece"
+                    href="https://my-school-assignment.blogspot.com/2026/06/amazing-sea-creatures-flying-fishes.html"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Amazing Sea Creatures — Flying Fishes</span
+                    ><span class="piece-tag">School project</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://my-school-assignment.blogspot.com/search/label/mount%20Kilimanjaro"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Mount Kilimanjaro — topic series</span
+                    ><span class="piece-tag">School project</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="chapter reveal" id="chapter-4">
+            <div class="chapter-marker">
+              <span class="num">IV</span>
+              <span class="kicker">Marketing &amp; Buyer's Guides</span>
+            </div>
+            <div class="chapter-body">
+              <h3>Specs, translated into decisions</h3>
+              <p>
+                Comparison-driven buying guides that do the research so the
+                reader doesn't have to.
+              </p>
+              <ul class="piece-list">
+                <li>
+                  <a
+                    class="piece"
+                    href="https://best-smart-tv-in-india.blogspot.com/2019/06/features-to-look-for-in-smart-tv.html"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Features to Look for in a Smart TV</span
+                    ><span class="piece-tag">Buyer's guide</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="chapter reveal" id="chapter-5">
+            <div class="chapter-marker">
+              <span class="num">V</span>
+              <span class="kicker">Career &amp; Soft-Skills Writing</span>
+            </div>
+            <div class="chapter-body">
+              <h3>Practical, screenshot-paced advice</h3>
+              <p>
+                Career and workplace writing built to be saved and reread, not
+                just skimmed once.
+              </p>
+              <ul class="piece-list">
+                <li>
+                  <a
+                    class="piece"
+                    href="https://webdesign-and-other-things.blogspot.com/2018/06/soft-skills-for-success.html"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title">Soft Skills for Success</span
+                    ><span class="piece-tag">Career advice</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://medium.com/@rnijampure/the-second-innings-a-complete-guide-directory-to-restarting-your-career-after-a-break-47ad7daf83c6"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >The Second Innings: A Complete Guide &amp; Directory to
+                      Restarting Your Career After a Break</span
+                    ><span class="piece-tag">Career guide · Medium</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="chapter reveal" id="chapter-6">
+            <div class="chapter-marker">
+              <span class="num">VI</span>
+              <span class="kicker">Lifestyle &amp; Personal Essays</span>
+            </div>
+            <div class="chapter-body">
+              <h3>Personal voice, practical use</h3>
+              <p>
+                First-person writing on everything from dressing a changing body
+                to reconciling modern self-help with the mythology I grew up on
+                — and, occasionally, how to actually choose a perfume.
+              </p>
+              <ul class="piece-list">
+                <li>
+                  <a
+                    class="piece"
+                    href="https://pinkey-blogg.blogspot.com/2016/12/law-of-attraction-power-of-your.html"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Law of Attraction &amp; the Power of the Subconscious
+                      Mind</span
+                    ><span class="piece-tag">Personal essay</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://the-thirty-something-blog.blogspot.com/2019/06/styles-for-curvy-body-hide-that-pot.html"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title">Styles for a Curvy Body</span
+                    ><span class="piece-tag">Lifestyle</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://sulus-best-buys.blogspot.com/2018/10/how-to-choose-right-perfume.html"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >How to Choose the Right Perfume</span
+                    ><span class="piece-tag">Buyer's guide</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="chapter reveal" id="chapter-7">
+            <div class="chapter-marker">
+              <span class="num">VII</span>
+              <span class="kicker">Technical Writing &amp; Accessibility</span>
+            </div>
+            <div class="chapter-body">
+              <h3>Written for other engineers</h3>
+              <p>
+                Frontend architecture and web-accessibility material — the
+                interview-ready answer and the enterprise governance handbook,
+                published on the same blog.
+              </p>
+              <ul class="piece-list">
+                <li>
+                  <a class="piece" href="#featured"
+                    ><span class="piece-title"
+                      >BuzzFest — product &amp; technical documentation</span
+                    ><span class="piece-tag">Product writing</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://tech-artist.hashnode.dev"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Narrative &amp; Code — technical blog</span
+                    ><span class="piece-tag">Hashnode</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://github.com/rnijampure"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Frontend &amp; accessibility handbooks</span
+                    ><span class="piece-tag">GitHub</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="chapter reveal" id="chapter-8">
+            <div class="chapter-marker">
+              <span class="num">VIII</span>
+              <span class="kicker">UX &amp; Product Design</span>
+            </div>
+            <div class="chapter-body">
+              <h3>Where the writing started</h3>
+              <p>
+                Interfaces and product flows for real and prototype products —
+                an ordering app for a neighborhood bakery, a storefront for a
+                sustainable-goods brand, and the interior and print design work
+                in between.
+              </p>
+              <ul class="piece-list">
+                <li>
+                  <a class="piece" href="design.html#featured"
+                    ><span class="piece-title"
+                      >BuzzFest — product journey, research to build</span
+                    ><span class="piece-tag">Case study</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.behance.net/gallery/186818905/Apna-Bakery-Ordering-Application"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Apna Bakery — Ordering Application</span
+                    ><span class="piece-tag">UX case study</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.behance.net/gallery/186495591/Prakrutik-A-sustainable-product-company"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Prakrutik — a sustainable product company</span
+                    ><span class="piece-tag">UX case study</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.behance.net/gallery/183717617/hotSpot-Interior-Designs"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >hotSpot — interior design concepts</span
+                    ><span class="piece-tag">Design</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.behance.net/rohinin"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title">Full portfolio on Behance</span
+                    ><span class="piece-tag">Behance</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ BOOKS ============ -->
+      <section class="band band-ink" id="books">
+        <div class="fold fold-to-ink"></div>
+        <div class="inner">
+          <div class="section-head reveal">
+            <h2>On the shelf</h2>
+            <p>
+              Two full-length books, written a decade apart, in two very
+              different registers.
+            </p>
+          </div>
+          <div class="books-grid">
+            <div class="book-card reveal">
+              <div class="book-cover">
+                <img
+                  src="./images/swarna.jpg"
+                  alt="Swarna and the Magical Forest book cover"
+                  width="327"
+                  height="502"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="title-plate">
+                  <span>Swarna and the Magical Forest</span>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ ABOUT ============ -->
-    <section class="band band-paper" id="about">
-      <div class="fold fold-to-paper"></div>
-      <div class="inner">
-        <div class="about-grid">
-          <div class="about-copy reveal">
-            <span class="eyebrow-mark">Two crafts, one instinct</span>
-            <h2
-              style="
-                margin: 14px 0 26px;
-                font-size: clamp(1.8rem, 3.4vw, 2.5rem);
-              "
-            >
-              About the writer behind the interface
-            </h2>
-            <p>
-              For fifteen years, I worked inside digital products — as a UX and
-              frontend architect and product designer — understanding what
-              customers need, where they hesitate, and what makes an experience
-              work for them. I've worked across UX, UI, interaction design,
-              visual design, information architecture, and frontend
-              implementation, adapting the end product based on both user needs
-              and business goals.
-            </p>
-
-            <p>
-              Over the last few years I've leaned into AI-augmented writing
-              tools — Claude, Sudowrite — to work faster without writing
-              thinner, using reader feedback and retention the same way I'd use
-              product analytics: to find exactly where a scene, a paragraph, or
-              a screen is losing people, and rewrite until it doesn't.
-            </p>
-            <p>
-              Alongside my technology and design career, I’ve maintained a
-              parallel practice in writing: children’s fantasy, historical
-              romance, Hinglish family drama, curriculum content, technical
-              documentation, and brand copy.
-            </p>
-            <p>
-              Over time, writing, design, and technology have become different
-              expressions of the same instinct: understand the audience,
-              communicate clearly, and create something that works.
-            </p>
-          </div>
-          <div class="stat-list reveal">
-            <div class="stat">
-              <b>15+</b><span>years in digital products</span>
-            </div>
-            <div class="stat"><b>2</b><span>published books</span></div>
-            <div class="stat">
-              <b>8</b><span>writing disciplines, one process</span>
-            </div>
-            <div class="stat">
-              <b>3</b
-              ><span>languages of dialogue: English, Hindi, Hinglish</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SERVICES ============ -->
-    <section class="band band-paper-alt" id="services">
-      <div class="inner">
-        <div class="section-head reveal">
-          <h2>What I create</h2>
-          <p>
-            Every project starts the same way: what does this page need to do,
-            and for whom? The discipline changes; the question doesn't.
-          </p>
-        </div>
-        <div class="services-grid reveal">
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M4 20l4.5-1.2L19 8.3a2 2 0 0 0 0-2.8l-.5-.5a2 2 0 0 0-2.8 0L5.2 15.5 4 20z"
-              />
-              <path d="M13.5 6.5l4 4" />
-            </svg>
-            <h3>Content &amp; marketing copy</h3>
-            <p>
-              Buyer's guides, product features, and lifestyle writing that reads
-              like advice from a friend, not a spec sheet.
-            </p>
-          </div>
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M8 9l-4 3 4 3" />
-              <path d="M16 9l4 3-4 3" />
-              <path d="M13 6l-2 12" />
-            </svg>
-            <h3>Technical &amp; developer docs</h3>
-            <p>
-              Frontend architecture, accessibility, and how-it-works guides
-              written for the reader who's stuck at 2am.
-            </p>
-          </div>
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="7" cy="8" r="2.5" />
-              <circle cx="17" cy="16" r="2.5" />
-              <path d="M9 9.5l6 5" />
-            </svg>
-            <h3>Narrative design &amp; scripts</h3>
-            <p>
-              Dialogue-driven, cliffhanger-paced episodes for episodic and
-              vertical formats, tuned against retention data.
-            </p>
-          </div>
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="5" y="4" width="14" height="17" rx="1" />
-              <path d="M9 9h6M9 13h6M9 17h3" />
-            </svg>
-            <h3>Children's &amp; educational writing</h3>
-            <p>
-              Curriculum-aligned school content and original picture-book
-              storytelling for young readers.
-            </p>
-          </div>
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="10" cy="10" r="6" />
-              <path d="M14.5 14.5L20 20" />
-            </svg>
-            <h3>Editorial reviews &amp; editing</h3>
-            <p>
-              Honest, structured reviews and line edits that respect a writer's
-              voice while sharpening it.
-            </p>
-          </div>
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="4" y="5" width="16" height="14" rx="1" />
-              <path d="M4 9h16M9 9v10" />
-            </svg>
-            <h3>UX &amp; product content</h3>
-            <p>
-              Interfaces, onboarding flows, and product copy designed by someone
-              who's shipped both sides of the screen.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ WORK: TOC + CHAPTERS ============ -->
-    <section class="band band-ink" id="work">
-      <div class="fold fold-to-ink"></div>
-      <div class="inner">
-        <div class="section-head reveal">
-          <h2>The work, chapter by chapter</h2>
-          <p>
-            Eight kinds of writing. One way of thinking about an audience. Here
-            are some samples for you!
-          </p>
-        </div>
-        <div class="toc-list reveal">
-          <a href="#chapter-1" class="toc-row"
-            ><span class="toc-num">I</span
-            ><span class="toc-title">Children's Books &amp; Reviews</span
-            ><span class="toc-fill"></span
-            ><span class="toc-count">3 pieces</span></a
-          >
-          <a href="#chapter-2" class="toc-row"
-            ><span class="toc-num">II</span
-            ><span class="toc-title">Fiction &amp; Hinglish Storytelling</span
-            ><span class="toc-fill"></span
-            ><span class="toc-count">1 piece</span></a
-          >
-          <a href="#chapter-3" class="toc-row"
-            ><span class="toc-num">III</span
-            ><span class="toc-title">Academic &amp; Educational Writing</span
-            ><span class="toc-fill"></span
-            ><span class="toc-count">2 pieces</span></a
-          >
-          <a href="#chapter-4" class="toc-row"
-            ><span class="toc-num">IV</span
-            ><span class="toc-title">Marketing &amp; Buyer's Guides</span
-            ><span class="toc-fill"></span
-            ><span class="toc-count">1 piece</span></a
-          >
-          <a href="#chapter-5" class="toc-row"
-            ><span class="toc-num">V</span
-            ><span class="toc-title">Career &amp; Soft-Skills Writing</span
-            ><span class="toc-fill"></span
-            ><span class="toc-count">1 piece</span></a
-          >
-          <a href="#chapter-6" class="toc-row"
-            ><span class="toc-num">VI</span
-            ><span class="toc-title">Lifestyle &amp; Personal Essays</span
-            ><span class="toc-fill"></span
-            ><span class="toc-count">3 pieces</span></a
-          >
-          <a href="#chapter-7" class="toc-row"
-            ><span class="toc-num">VII</span
-            ><span class="toc-title">Technical Writing &amp; Accessibility</span
-            ><span class="toc-fill"></span
-            ><span class="toc-count">3 pieces</span></a
-          >
-          <a href="#chapter-8" class="toc-row"
-            ><span class="toc-num">VIII</span
-            ><span class="toc-title">UX &amp; Product Design</span
-            ><span class="toc-fill"></span
-            ><span class="toc-count">5 pieces</span></a
-          >
-        </div>
-      </div>
-    </section>
-
-    <section class="band band-paper">
-      <div class="fold fold-to-paper"></div>
-      <div class="inner">
-        <article class="chapter reveal" id="chapter-1">
-          <div class="chapter-marker">
-            <span class="num">I</span>
-            <span class="kicker">Children's Books &amp; Reviews</span>
-          </div>
-          <div class="chapter-body">
-            <h3>Where I started, and still return to</h3>
-            <p>
-              Original picture-book fantasy, alongside honest reviews of other
-              people's children's books — read with the specific, unglamorous
-              eye of someone who has to make an eight-year-old ask for one more
-              chapter.
-            </p>
-            <ul class="piece-list">
-              <li>
+              <div class="book-info">
+                <h3>Swarna and the Magical Forest</h3>
+                <span class="genre">Children's fantasy</span>
+                <p>
+                  A girl discovers a magical forest, and a world of creatures no
+                  field guide has ever recorded — from a stream where flying
+                  fish glide above the water to corners no map quite agrees on.
+                </p>
                 <a
-                  class="piece"
+                  class="btn btn-ghost-light"
                   href="https://www.amazon.in/Swarna-Magical-Forest-Rohini-Nijampure/dp/8195077870"
                   target="_blank"
                   rel="noopener"
-                  ><span class="piece-title">Swarna and the Magical Forest</span
-                  ><span class="piece-tag">Children's fantasy · Book</span></a
+                  >View on Amazon</a
                 >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://simplestoriesforbedtime.blogspot.com/2018/09/the-princes-pride.html"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title">The Prince's Pride</span
-                  ><span class="piece-tag">Children's fantasy · Book</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://simplestoriesforbedtime.blogspot.com/2017/11/the-sparrow-and-fox.html"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title">The Sparrow and the Fox</span
-                  ><span class="piece-tag">Children's fantasy · Story</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://coffee-and-a-book-and-me.blogspot.com/2022/03/my-muddy-puddle-review.html"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title">My Muddy Puddle — A Review</span
-                  ><span class="piece-tag">Book review · 2022</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="chapter reveal" id="chapter-2">
-          <div class="chapter-marker">
-            <span class="num">II</span>
-            <span class="kicker">Fiction &amp; Hinglish Storytelling</span>
-            <span class="dev" lang="hi">कहानी</span>
-          </div>
-          <div class="chapter-body">
-            <h3>Written in the way people actually talk</h3>
-            <p>
-              Family, friendship, and the things people don't say out loud — in
-              the code-switching rhythm of how urban India actually speaks.
-              Dialogue carries the story; the silences between the lines carry
-              the rest.
-            </p>
-            <ul class="piece-list">
-              <li>
-                <a
-                  class="piece"
-                  href="https://in-my-imagination-a-short-story.blogspot.com/2018/09/sunita-doctors-live-and-love-story.html"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Sunita — A Doctor's Life and Love Story</span
-                  ><span class="piece-tag">Short fiction · 2018</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="chapter reveal" id="chapter-3">
-          <div class="chapter-marker">
-            <span class="num">III</span>
-            <span class="kicker">Academic &amp; Educational Writing</span>
-          </div>
-          <div class="chapter-body">
-            <h3>Built for the CBSE classroom</h3>
-            <p>
-              Curriculum-aligned explainers for school projects — dense enough
-              to be useful, light enough that a ten-year-old finishes it without
-              being told to.
-            </p>
-            <ul class="piece-list">
-              <li>
-                <a
-                  class="piece"
-                  href="https://my-school-assignment.blogspot.com/2026/06/amazing-sea-creatures-flying-fishes.html"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Amazing Sea Creatures — Flying Fishes</span
-                  ><span class="piece-tag">School project</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://my-school-assignment.blogspot.com/search/label/mount%20Kilimanjaro"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Mount Kilimanjaro — topic series</span
-                  ><span class="piece-tag">School project</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="chapter reveal" id="chapter-4">
-          <div class="chapter-marker">
-            <span class="num">IV</span>
-            <span class="kicker">Marketing &amp; Buyer's Guides</span>
-          </div>
-          <div class="chapter-body">
-            <h3>Specs, translated into decisions</h3>
-            <p>
-              Comparison-driven buying guides that do the research so the reader
-              doesn't have to.
-            </p>
-            <ul class="piece-list">
-              <li>
-                <a
-                  class="piece"
-                  href="https://best-smart-tv-in-india.blogspot.com/2019/06/features-to-look-for-in-smart-tv.html"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Features to Look for in a Smart TV</span
-                  ><span class="piece-tag">Buyer's guide</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="chapter reveal" id="chapter-5">
-          <div class="chapter-marker">
-            <span class="num">V</span>
-            <span class="kicker">Career &amp; Soft-Skills Writing</span>
-          </div>
-          <div class="chapter-body">
-            <h3>Practical, screenshot-paced advice</h3>
-            <p>
-              Career and workplace writing built to be saved and reread, not
-              just skimmed once.
-            </p>
-            <ul class="piece-list">
-              <li>
-                <a
-                  class="piece"
-                  href="https://webdesign-and-other-things.blogspot.com/2018/06/soft-skills-for-success.html"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title">Soft Skills for Success</span
-                  ><span class="piece-tag">Career advice</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="chapter reveal" id="chapter-6">
-          <div class="chapter-marker">
-            <span class="num">VI</span>
-            <span class="kicker">Lifestyle &amp; Personal Essays</span>
-          </div>
-          <div class="chapter-body">
-            <h3>Personal voice, practical use</h3>
-            <p>
-              First-person writing on everything from dressing a changing body
-              to reconciling modern self-help with the mythology I grew up on —
-              and, occasionally, how to actually choose a perfume.
-            </p>
-            <ul class="piece-list">
-              <li>
-                <a
-                  class="piece"
-                  href="https://pinkey-blogg.blogspot.com/2016/12/law-of-attraction-power-of-your.html"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Law of Attraction &amp; the Power of the Subconscious
-                    Mind</span
-                  ><span class="piece-tag">Personal essay</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://the-thirty-something-blog.blogspot.com/2019/06/styles-for-curvy-body-hide-that-pot.html"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title">Styles for a Curvy Body</span
-                  ><span class="piece-tag">Lifestyle</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://sulus-best-buys.blogspot.com/2018/10/how-to-choose-right-perfume.html"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >How to Choose the Right Perfume</span
-                  ><span class="piece-tag">Buyer's guide</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="chapter reveal" id="chapter-7">
-          <div class="chapter-marker">
-            <span class="num">VII</span>
-            <span class="kicker">Technical Writing &amp; Accessibility</span>
-          </div>
-          <div class="chapter-body">
-            <h3>Written for other engineers</h3>
-            <p>
-              Frontend architecture and web-accessibility material — the
-              interview-ready answer and the enterprise governance handbook,
-              published on the same blog.
-            </p>
-            <ul class="piece-list">
-              <li>
-                <a class="piece" href="#featured"
-                  ><span class="piece-title"
-                    >BuzzFest — product &amp; technical documentation</span
-                  ><span class="piece-tag">Product writing</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://tech-artist.hashnode.dev"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Narrative &amp; Code — technical blog</span
-                  ><span class="piece-tag">Hashnode</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://github.com/rnijampure"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Frontend &amp; accessibility handbooks</span
-                  ><span class="piece-tag">GitHub</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="chapter reveal" id="chapter-8">
-          <div class="chapter-marker">
-            <span class="num">VIII</span>
-            <span class="kicker">UX &amp; Product Design</span>
-          </div>
-          <div class="chapter-body">
-            <h3>Where the writing started</h3>
-            <p>
-              Interfaces and product flows for real and prototype products — an
-              ordering app for a neighborhood bakery, a storefront for a
-              sustainable-goods brand, and the interior and print design work in
-              between.
-            </p>
-            <ul class="piece-list">
-              <li>
-                <a class="piece" href="design.html#featured"
-                  ><span class="piece-title"
-                    >BuzzFest — product journey, research to build</span
-                  ><span class="piece-tag">Case study</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.behance.net/gallery/186818905/Apna-Bakery-Ordering-Application"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Apna Bakery — Ordering Application</span
-                  ><span class="piece-tag">UX case study</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.behance.net/gallery/186495591/Prakrutik-A-sustainable-product-company"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Prakrutik — a sustainable product company</span
-                  ><span class="piece-tag">UX case study</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.behance.net/gallery/183717617/hotSpot-Interior-Designs"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >hotSpot — interior design concepts</span
-                  ><span class="piece-tag">Design</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.behance.net/rohinin"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title">Full portfolio on Behance</span
-                  ><span class="piece-tag">Behance</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ BOOKS ============ -->
-    <section class="band band-ink" id="books">
-      <div class="fold fold-to-ink"></div>
-      <div class="inner">
-        <div class="section-head reveal">
-          <h2>On the shelf</h2>
-          <p>
-            Two full-length books, written a decade apart, in two very different
-            registers.
-          </p>
-        </div>
-        <div class="books-grid">
-          <div class="book-card reveal">
-            <div class="book-cover">
-              <img
-                src="./images/swarna.jpg"
-                alt="Swarna and the Magical Forest book cover"
-              />
-              <div class="title-plate">
-                <span>Swarna and the Magical Forest</span>
               </div>
             </div>
-            <div class="book-info">
-              <h3>Swarna and the Magical Forest</h3>
-              <span class="genre">Children's fantasy</span>
-              <p>
-                A girl discovers a magical forest, and a world of creatures no
-                field guide has ever recorded — from a stream where flying fish
-                glide above the water to corners no map quite agrees on.
-              </p>
-              <a
-                class="btn btn-ghost-light"
-                href="./images/swarna.jpg"
-                target="_blank"
-                rel="noopener"
-                >View on Amazon</a
-              >
-            </div>
-          </div>
-          <div class="book-card reveal">
-            <div class="book-cover">
-              <img
-                src="./images/prince.jpg"
-                alt="Under the Silken Moonlight book cover"
-              />
-              <div class="title-plate">
-                <span>Under the Silken Moonlight</span>
+            <div class="book-card reveal">
+              <div class="book-cover">
+                <img
+                  src="./images/prince.jpg"
+                  alt="Under the Silken Moonlight book cover"
+                  width="327"
+                  height="502"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="title-plate">
+                  <span>Under the Silken Moonlight</span>
+                </div>
+              </div>
+              <div class="book-info">
+                <h3>Under the Silken Moonlight</h3>
+                <span class="genre">Historical romance</span>
+                <p>
+                  An arrogant king, a reluctant prince, a war at hand, an
+                  unexpected kidnapping — and a romance neither of them saw
+                  coming.
+                </p>
+                <a
+                  class="btn btn-ghost-light"
+                  href="https://www.amazon.in/dp/B07DB7SF8Y"
+                  target="_blank"
+                  rel="noopener"
+                  >View on Amazon</a
+                >
               </div>
             </div>
-            <div class="book-info">
-              <h3>Under the Silken Moonlight</h3>
-              <span class="genre">Historical romance</span>
-              <p>
-                An arrogant king, a reluctant prince, a war at hand, an
-                unexpected kidnapping — and a romance neither of them saw
-                coming.
-              </p>
-              <a
-                class="btn btn-ghost-light"
-                href="https://www.amazon.in/dp/B07DB7SF8Y"
-                target="_blank"
-                rel="noopener"
-                >View on Amazon</a
-              >
-            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ============ CONTACT ============ -->
-    <section class="band band-ink" id="contact">
-      <div class="inner contact-inner">
-        <div class="section-head reveal" style="margin-bottom: 36px">
-          <h2>Let's write something</h2>
-          <p>
-            Whether it's a product's onboarding copy, a season of scripts, or a
-            school project that needs to not sound like a school project — tell
-            me what the page needs to do, and I'll write until it does it.
-          </p>
+      <!-- ============ CONTACT ============ -->
+      <section class="band band-ink" id="contact">
+        <div class="inner contact-inner">
+          <div class="section-head reveal" style="margin-bottom: 36px">
+            <h2>Let's write something</h2>
+            <p>
+              Whether it's a product's onboarding copy, a season of scripts, or
+              a school project that needs to not sound like a school project —
+              tell me what the page needs to do, and I'll write until it does
+              it.
+            </p>
+          </div>
+          <a class="contact-email reveal" href="mailto:webdevzbang@gmail.com"
+            >rnijampure@gmail.com</a
+          >
+          <div class="social-row reveal">
+            <a
+              href="https://www.behance.net/rohinin"
+              target="_blank"
+              rel="noopener"
+              >Behance</a
+            >
+            <a
+              href="https://hashnode.com/@frontender09"
+              target="_blank"
+              rel="noopener"
+              >Hashnode</a
+            >
+            <a
+              href="https://github.com/rnijampure"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              href="https://www.instagram.com/rnijampure/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              href="https://www.linkedin.com/in/rohini-nijampure-1b5b7622"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </div>
+          <div class="site-footer">
+            <span>Rohini N — Bangalore, India</span>
+            <span>© 2026, all rights reserved</span>
+          </div>
         </div>
-        <a class="contact-email reveal" href="mailto:webdevzbang@gmail.com"
-          >rnijampure@gmail.com</a
-        >
-        <div class="social-row reveal">
-          <a
-            href="https://www.behance.net/rohinin"
-            target="_blank"
-            rel="noopener"
-            >Behance</a
-          >
-          <a
-            href="https://hashnode.com/@frontender09"
-            target="_blank"
-            rel="noopener"
-            >Hashnode</a
-          >
-          <a href="https://github.com/rnijampure" target="_blank" rel="noopener"
-            >GitHub</a
-          >
-          <a
-            href="https://www.instagram.com/rnijampure/"
-            target="_blank"
-            rel="noopener"
-            >Instagram</a
-          >
-          <a
-            href="http://linkedin.com/in/rohini-nijampure-1b5b7622"
-            target="_blank"
-            rel="noopener"
-            >LinkedIn</a
-          >
-        </div>
-        <div class="site-footer">
-          <span>Rohini N — Bangalore, India</span>
-          <span>© 2026, all rights reserved</span>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <script>
       document.documentElement.classList.add("js");
@@ -2324,13 +2439,15 @@
       /* mobile nav toggle */
       var navToggle = document.getElementById("navToggle");
       navToggle.addEventListener("click", function () {
-        document.body.classList.toggle("nav-open");
+        var open = document.body.classList.toggle("nav-open");
+        navToggle.setAttribute("aria-expanded", String(open));
       });
       document
         .getElementById("navMenu")
         .addEventListener("click", function (e) {
           if (e.target.tagName === "A") {
             document.body.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
           }
         });
 

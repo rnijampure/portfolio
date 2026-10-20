@@ -18,17 +18,20 @@
       content="UI/UX and visual designer with 15+ years in digital products. Interfaces, design systems, and graphic design across screen and print."
     />
     <meta name="author" content="Rohini Nijampure" />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1"
+    />
     <link
       rel="canonical"
-      href="https://rnijampure.github.io/new-portfolio-design/design.html"
+      href="https://rnijampure.github.io/portfolio/design.html"
     />
     <meta name="theme-color" content="#16213A" />
 
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://rnijampure.github.io/new-portfolio-design/design.html"
+      content="https://rnijampure.github.io/portfolio/design.html"
     />
     <meta property="og:site_name" content="Rohini Nijampure" />
     <meta property="og:locale" content="en_IN" />
@@ -39,6 +42,7 @@
     />
 
     <meta name="twitter:card" content="summary" />
+    <link rel="sitemap" type="application/xml" href="sitemap.xml" />
     <meta name="twitter:title" content="Rohini N — UI/UX &amp; Visual Design" />
     <meta
       name="twitter:description"
@@ -56,22 +60,81 @@
       rel="stylesheet"
     />
 
+    <style>
+      .skip-link {
+        position: absolute;
+        left: 12px;
+        top: -60px;
+        z-index: 1000;
+        padding: 10px 16px;
+        background: #d9a02c;
+        color: #16213a;
+        font-weight: 600;
+        border-radius: 6px;
+        text-decoration: none;
+      }
+      .skip-link:focus {
+        top: 12px;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Rohini Nijampure",
-        "alternateName": "Rohini N",
-        "jobTitle": "UI/UX & Visual Designer",
-        "url": "https://rnijampure.github.io/new-portfolio-design/design.html",
-        "description": "UI/UX and visual designer with fifteen years in digital products, working across interface design, design systems, and graphic design for screen and print.",
-        "knowsLanguage": ["en", "hi"],
-        "sameAs": [
-          "https://www.behance.net/rohinin",
-          "https://hashnode.com/@frontender09",
-          "https://github.com/rnijampure",
-          "https://www.instagram.com/rnijampure/",
-          "http://linkedin.com/in/rohini-nijampure-1b5b7622"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://rnijampure.github.io/portfolio/#website",
+            "url": "https://rnijampure.github.io/portfolio/",
+            "name": "Rohini Nijampure — Portfolio",
+            "inLanguage": "en-IN"
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://rnijampure.github.io/portfolio/design.html#page",
+            "url": "https://rnijampure.github.io/portfolio/design.html",
+            "name": "Rohini N — UI/UX & Visual Design",
+            "isPartOf": {
+              "@id": "https://rnijampure.github.io/portfolio/#website"
+            },
+            "about": {
+              "@id": "https://rnijampure.github.io/portfolio/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://rnijampure.github.io/portfolio/#person",
+            "name": "Rohini Nijampure",
+            "alternateName": "Rohini N",
+            "jobTitle": "UI/UX & Visual Designer",
+            "url": "https://rnijampure.github.io/portfolio/design.html",
+            "description": "UI/UX and visual designer with fifteen years in digital products, working across interface design, design systems, and graphic design for screen and print.",
+            "knowsLanguage": ["en", "hi"],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bengaluru",
+              "addressCountry": "IN"
+            },
+            "sameAs": [
+              "https://www.behance.net/rohinin",
+              "https://hashnode.com/@frontender09",
+              "https://github.com/rnijampure",
+              "https://www.instagram.com/rnijampure/",
+              "https://www.linkedin.com/in/rohini-nijampure-1b5b7622",
+              "https://medium.com/@rnijampure"
+            ]
+          }
         ]
       }
     </script>
@@ -1183,15 +1246,17 @@
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div class="progress" id="progress"></div>
 
-    <nav class="site-nav" id="siteNav">
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
       <a href="index.html#top" class="brand">Rohini N.</a>
       <div class="nav-right">
         <div class="nav-menu" id="navMenu">
           <ul class="nav-links">
             <li><a href="index.html">Writing</a></li>
-            <li><a href="#featured">Product journey</a></li>
+            <li><a href="#featured">BuzzFest</a></li>
+            <li><a href="product_journey/index.html">Product Journey</a></li>
             <li><a href="#work">UX Work</a></li>
             <li><a href="#chapter-2">Graphic Design</a></li>
             <li><a href="#toolkit">Toolkit</a></li>
@@ -1238,7 +1303,13 @@
             />
           </svg>
         </button>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle menu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+        >
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -1254,699 +1325,719 @@
       </div>
     </nav>
 
-    <!-- ============ HERO ============ -->
-    <header class="hero" id="top">
-      <div class="hero-bg">
-        <svg
-          aria-hidden="true"
-          class="hero-layer"
-          data-speed="0.15"
-          viewBox="0 0 1600 900"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <defs>
-            <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
-              <stop
-                offset="0%"
-                stop-color="var(--accent-primary)"
-                stop-opacity="0.55"
-              />
-              <stop
-                offset="100%"
-                stop-color="var(--accent-primary)"
-                stop-opacity="0"
-              />
-            </radialGradient>
-            <pattern
-              id="canvasDots"
-              width="52"
-              height="52"
-              patternUnits="userSpaceOnUse"
-            >
-              <circle
-                cx="2"
-                cy="2"
-                r="1.6"
-                fill="var(--text-strong)"
-                opacity="0.4"
-              />
-            </pattern>
-          </defs>
-          <rect
-            x="0"
-            y="0"
-            width="1600"
-            height="900"
-            fill="url(#canvasDots)"
-            opacity="0.4"
-          />
-          <circle
-            cx="1310"
-            cy="160"
-            r="230"
-            fill="url(#glow1)"
-            class="moon-glow"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="hero-layer"
-          data-speed="0.35"
-          viewBox="0 0 1600 900"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <circle
-            cx="200"
-            cy="660"
-            r="230"
-            fill="var(--accent-forest)"
-            opacity="0.32"
-          />
-          <circle
-            cx="560"
-            cy="770"
-            r="165"
-            fill="var(--accent-rose)"
-            opacity="0.28"
-          />
-          <circle
-            cx="1000"
-            cy="700"
-            r="215"
-            fill="var(--accent-primary-deep)"
-            opacity="0.22"
-          />
-          <circle
-            cx="1400"
-            cy="790"
-            r="150"
-            fill="var(--accent-muted)"
-            opacity="0.26"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="hero-layer"
-          data-speed="0.55"
-          viewBox="0 0 1600 900"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <g
-            class="fish"
-            style="
-              offset-path: path(
-                &quot;M 140 520 C 520 340, 900 340, 1440 500&quot;
-              );
-            "
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <header class="hero" id="top">
+        <div class="hero-bg">
+          <svg
+            aria-hidden="true"
+            class="hero-layer"
+            data-speed="0.15"
+            viewBox="0 0 1600 900"
+            preserveAspectRatio="xMidYMid slice"
           >
+            <defs>
+              <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+                <stop
+                  offset="0%"
+                  stop-color="var(--accent-primary)"
+                  stop-opacity="0.55"
+                />
+                <stop
+                  offset="100%"
+                  stop-color="var(--accent-primary)"
+                  stop-opacity="0"
+                />
+              </radialGradient>
+              <pattern
+                id="canvasDots"
+                width="52"
+                height="52"
+                patternUnits="userSpaceOnUse"
+              >
+                <circle
+                  cx="2"
+                  cy="2"
+                  r="1.6"
+                  fill="var(--text-strong)"
+                  opacity="0.4"
+                />
+              </pattern>
+            </defs>
             <rect
-              x="-8"
-              y="-8"
-              width="16"
-              height="16"
-              rx="4"
-              fill="var(--accent-primary)"
-              opacity="0.92"
-              transform="rotate(45)"
+              x="0"
+              y="0"
+              width="1600"
+              height="900"
+              fill="url(#canvasDots)"
+              opacity="0.4"
             />
-          </g>
-          <g
-            class="fish"
-            style="
-              offset-path: path(
-                &quot;M 200 300 C 560 460, 980 460, 1380 280&quot;
-              );
-              animation-delay: -7s;
-            "
+            <circle
+              cx="1310"
+              cy="160"
+              r="230"
+              fill="url(#glow1)"
+              class="moon-glow"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="hero-layer"
+            data-speed="0.35"
+            viewBox="0 0 1600 900"
+            preserveAspectRatio="xMidYMid slice"
           >
-            <rect
-              x="-6"
-              y="-6"
-              width="12"
-              height="12"
-              rx="3"
+            <circle
+              cx="200"
+              cy="660"
+              r="230"
+              fill="var(--accent-forest)"
+              opacity="0.32"
+            />
+            <circle
+              cx="560"
+              cy="770"
+              r="165"
               fill="var(--accent-rose)"
-              opacity="0.85"
-              transform="rotate(45)"
+              opacity="0.28"
             />
-          </g>
-        </svg>
-      </div>
-
-      <div class="hero-content">
-        <p class="hero-kicker">
-          <span class="dot"></span> Bengaluru, India — designing digital
-          products since 2011
-        </p>
-        <h1>Rohini N</h1>
-        <p class="role">UI/UX &amp; Visual Designer</p>
-        <p class="lede">
-          Fifteen years building digital products, now sharpened into dedicated
-          UI/UX and visual design work — interfaces, design systems, and the
-          occasional poster or t-shirt, all built with the same instinct for
-          structure and story.
-        </p>
-        <div class="tag-row">
-          <span class="pill">Figma · Photoshop · Illustrator · XD</span>
-          <span class="pill">Design systems</span>
-          <span class="pill">Accessibility</span>
-        </div>
-        <div class="hero-actions">
-          <a href="#work" class="btn btn-primary">See the work</a>
-          <a href="#contact" class="btn btn-ghost-light">Get in touch</a>
-        </div>
-        <div class="find-me">
-          <span class="find-me-label">Find the work:</span>
-          <a
-            href="https://www.behance.net/rohinin"
-            target="_blank"
-            rel="noopener"
-            >Behance</a
+            <circle
+              cx="1000"
+              cy="700"
+              r="215"
+              fill="var(--accent-primary-deep)"
+              opacity="0.22"
+            />
+            <circle
+              cx="1400"
+              cy="790"
+              r="150"
+              fill="var(--accent-muted)"
+              opacity="0.26"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="hero-layer"
+            data-speed="0.55"
+            viewBox="0 0 1600 900"
+            preserveAspectRatio="xMidYMid slice"
           >
-          <a
-            href="https://hashnode.com/@frontender09"
-            target="_blank"
-            rel="noopener"
-            >Hashnode</a
-          >
-          <a href="https://github.com/rnijampure" target="_blank" rel="noopener"
-            >GitHub</a
-          >
-          <a
-            href="https://www.instagram.com/rnijampure/"
-            target="_blank"
-            rel="noopener"
-            >Instagram</a
-          >
-          <a
-            href="http://linkedin.com/in/rohini-nijampure-1b5b7622"
-            target="_blank"
-            rel="noopener"
-            >LinkedIn</a
-          >
-        </div>
-      </div>
-      <div class="scroll-cue"><span class="line"></span> scroll</div>
-    </header>
-
-    <!-- ============ FEATURED PROJECT: BUZZFEST ============ -->
-    <section class="band band-ink bf" id="featured">
-      <div class="inner">
-        <div class="reveal">
-          <span class="bf-badge">Featured project · product journey</span>
-          <h2>BuzzFest, from research to a working beta</h2>
-          <p class="bf-lede">
-            A concept home-baker ordering marketplace, originally called Apna
-            Bakery. I ran the research, designed the interface and style guide,
-            built the beta and documented it.
-          </p>
-          <div class="hero-actions" style="margin-top: 28px">
-            <a
-              class="btn btn-primary"
-              href="https://buzz-fest.vercel.app/"
-              target="_blank"
-              rel="noopener"
-              >Open the live beta</a
-            >
-            <a class="btn btn-ghost-light" href="index.html#featured"
-              >Read the product writing</a
-            >
-          </div>
-        </div>
-        <div class="bf-grid reveal">
-          <div>
-            <ol class="bf-rail">
-              <li>
-                <b>Research</b
-                ><span
-                  >Four pain points and three personas behind the goal
-                  statement.</span
-                >
-              </li>
-              <li>
-                <b>Design</b
-                ><span
-                  >Wireframes, a prototype and a chocolate-themed style guide,
-                  built in Figma.</span
-                >
-              </li>
-              <li>
-                <b>Build</b
-                ><span
-                  >A live beta in Next.js and PostgreSQL: browse bakers, add to
-                  cart, place an order.</span
-                >
-              </li>
-              <li>
-                <b>Document</b
-                ><span
-                  >Product and technical documentation, checked against the live
-                  site and the schema.</span
-                >
-              </li>
-            </ol>
-          </div>
-          <div>
-            <div class="bf-docs">
-              <div class="bf-doc">
-                <span class="bf-status">Available now</span>
-                <h3>Product documentation</h3>
-                <p>
-                  What BuzzFest is, who it is for and what works today. Every
-                  claim is checked against the live site, the database schema
-                  and sample data, and the known limitations are listed.
-                </p>
-                <div class="bf-links">
-                  <a
-                    class="btn btn-ghost-light"
-                    href="assets/buzzfest-product-documentation.pdf"
-                    >Read the document</a
-                  ><a
-                    class="btn btn-ghost-light"
-                    href="https://buzz-fest.vercel.app/"
-                    target="_blank"
-                    rel="noopener"
-                    >Live beta</a
-                  >
-                </div>
-              </div>
-              <div class="bf-doc">
-                <span class="bf-status">In progress</span>
-                <h3>Technical documentation</h3>
-                <p>
-                  Architecture, data model and setup for developers, written
-                  from the repository and the Prisma schema.
-                </p>
-                <div class="bf-links">
-                  <a
-                    class="btn btn-ghost-light"
-                    href="https://github.com/rnijampure/buzzFest"
-                    target="_blank"
-                    rel="noopener"
-                    >View the repository</a
-                  >
-                </div>
-              </div>
-              <div class="bf-doc">
-                <span class="bf-status">Case study</span>
-                <h3>Product journey</h3>
-                <p>
-                  The research, personas, journey map, wireframes and style
-                  guide that shaped the product.
-                </p>
-                <div class="bf-links">
-                  <a
-                    class="btn btn-ghost-light"
-                    href="assets/buzzfest-product-journey.pdf"
-                    >Read the case study</a
-                  ><a
-                    class="btn btn-ghost-light"
-                    href="https://docs.google.com/presentation/d/1LEFaP4QtHL6kJTGzFGF35TZScXkSBKyGo-bjZ685E84/edit?usp=drive_link"
-                    target="_blank"
-                    rel="noopener"
-                    >Open the slides</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <details class="bf-embed reveal">
-          <summary>Read the case study deck here</summary>
-          <div class="bf-frame">
-            <iframe
-              loading="lazy"
-              title="Apna Bakery case study slides"
-              src="https://docs.google.com/presentation/d/1LEFaP4QtHL6kJTGzFGF35TZScXkSBKyGo-bjZ685E84/embed?start=false&amp;loop=false&amp;delayms=3000"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <p class="bf-note">
-            If the slides do not load,
-            <a
-              href="https://docs.google.com/presentation/d/1LEFaP4QtHL6kJTGzFGF35TZScXkSBKyGo-bjZ685E84/edit?usp=drive_link"
-              target="_blank"
-              rel="noopener"
-              >open them in Google Slides</a
-            >.
-          </p>
-        </details>
-      </div>
-    </section>
-
-    <!-- ============ ABOUT ============ -->
-    <section class="band band-paper" id="about">
-      <div class="fold fold-to-paper"></div>
-      <div class="inner">
-        <div class="about-grid">
-          <div class="about-copy reveal">
-            <span class="eyebrow-mark">Where the interface began</span>
-            <h2
+            <g
+              class="fish"
               style="
-                margin: 14px 0 26px;
-                font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+                offset-path: path(
+                  &quot;M 140 520 C 520 340, 900 340, 1440 500&quot;
+                );
               "
             >
-              About the design practice
-            </h2>
-            <p>
-              For fifteen years I've worked inside digital products and UX — as
-              a UX and frontend architect, then more and more as the person
-              making the actual interface decisions when there was no dedicated
-              designer in the room.
+              <rect
+                x="-8"
+                y="-8"
+                width="16"
+                height="16"
+                rx="4"
+                fill="var(--accent-primary)"
+                opacity="0.92"
+                transform="rotate(45)"
+              />
+            </g>
+            <g
+              class="fish"
+              style="
+                offset-path: path(
+                  &quot;M 200 300 C 560 460, 980 460, 1380 280&quot;
+                );
+                animation-delay: -7s;
+              "
+            >
+              <rect
+                x="-6"
+                y="-6"
+                width="12"
+                height="12"
+                rx="3"
+                fill="var(--accent-rose)"
+                opacity="0.85"
+                transform="rotate(45)"
+              />
+            </g>
+          </svg>
+        </div>
+
+        <div class="hero-content">
+          <p class="hero-kicker">
+            <span class="dot"></span> Bengaluru, India — designing digital
+            products since 2011
+          </p>
+          <h1>
+            Rohini N<span class="sr-only">
+              (Rohini Nijampure), UI/UX and visual designer</span
+            >
+          </h1>
+          <p class="role">UI/UX &amp; Visual Designer</p>
+          <p class="lede">
+            Fifteen years building digital products, now sharpened into
+            dedicated UI/UX and visual design work — interfaces, design systems,
+            and the occasional poster or t-shirt, all built with the same
+            instinct for structure and story.
+          </p>
+          <div class="tag-row">
+            <span class="pill">Figma · Photoshop · Illustrator · XD</span>
+            <span class="pill">Design systems</span>
+            <span class="pill">Accessibility</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">See the work</a>
+            <a href="#contact" class="btn btn-ghost-light">Get in touch</a>
+          </div>
+          <div class="find-me">
+            <span class="find-me-label">Find the work:</span>
+            <a
+              href="https://www.behance.net/rohinin"
+              target="_blank"
+              rel="noopener"
+              >Behance</a
+            >
+            <a
+              href="https://hashnode.com/@frontender09"
+              target="_blank"
+              rel="noopener"
+              >Hashnode</a
+            >
+            <a
+              href="https://github.com/rnijampure"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              href="https://www.instagram.com/rnijampure/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              href="https://www.linkedin.com/in/rohini-nijampure-1b5b7622"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+        <div class="scroll-cue"><span class="line"></span> scroll</div>
+      </header>
+
+      <!-- ============ FEATURED PROJECT: BUZZFEST ============ -->
+      <section class="band band-ink bf" id="featured">
+        <div class="inner">
+          <div class="reveal">
+            <span class="bf-badge">Featured project · product journey</span>
+            <h2>BuzzFest, from research to a working beta</h2>
+            <p class="bf-lede">
+              A concept home-baker ordering marketplace, originally called Apna
+              Bakery. I ran the research, designed the interface and style
+              guide, built the beta and documented it.
             </p>
-            <p>
-              That hands-on need turned into a real design practice: wireframes
-              and prototypes in Figma, visual systems in Illustrator and
-              Photoshop, and layouts built to hold up in production, not just in
-              a mockup — from a bakery's ordering app to a sustainable-goods
-              storefront to posters and interior concepts.
-            </p>
-            <p>
-              It's the same instinct that shows up in
+            <div class="hero-actions" style="margin-top: 28px">
               <a
-                href="index.html"
+                class="btn btn-primary"
+                href="https://buzz-fest.vercel.app/"
+                target="_blank"
+                rel="noopener"
+                >Open the live beta</a
+              >
+              <a class="btn btn-ghost-light" href="index.html#featured"
+                >Read the product writing</a
+              >
+            </div>
+          </div>
+          <div class="bf-grid reveal">
+            <div>
+              <ol class="bf-rail">
+                <li>
+                  <b>Research</b
+                  ><span
+                    >Four pain points and three personas behind the goal
+                    statement.</span
+                  >
+                </li>
+                <li>
+                  <b>Design</b
+                  ><span
+                    >Wireframes, a prototype and a chocolate-themed style guide,
+                    built in Figma.</span
+                  >
+                </li>
+                <li>
+                  <b>Build</b
+                  ><span
+                    >A live beta in Next.js and PostgreSQL: browse bakers, add
+                    to cart, place an order.</span
+                  >
+                </li>
+                <li>
+                  <b>Document</b
+                  ><span
+                    >Product and technical documentation, checked against the
+                    live site and the schema.</span
+                  >
+                </li>
+              </ol>
+            </div>
+            <div>
+              <div class="bf-docs">
+                <div class="bf-doc">
+                  <span class="bf-status">Available now</span>
+                  <h3>Product documentation</h3>
+                  <p>
+                    What BuzzFest is, who it is for and what works today. Every
+                    claim is checked against the live site, the database schema
+                    and sample data, and the known limitations are listed.
+                  </p>
+                  <div class="bf-links">
+                    <a
+                      class="btn btn-ghost-light"
+                      href="assets/buzzfest-product-documentation.pdf"
+                      >Read the document</a
+                    ><a
+                      class="btn btn-ghost-light"
+                      href="https://buzz-fest.vercel.app/"
+                      target="_blank"
+                      rel="noopener"
+                      >Live beta</a
+                    >
+                  </div>
+                </div>
+                <div class="bf-doc">
+                  <span class="bf-status">In progress</span>
+                  <h3>Technical documentation</h3>
+                  <p>
+                    Architecture, data model and setup for developers, written
+                    from the repository and the Prisma schema.
+                  </p>
+                  <div class="bf-links">
+                    <a
+                      class="btn btn-ghost-light"
+                      href="https://github.com/rnijampure/buzzFest"
+                      target="_blank"
+                      rel="noopener"
+                      >View the repository</a
+                    >
+                  </div>
+                </div>
+                <div class="bf-doc">
+                  <span class="bf-status">Case study</span>
+                  <h3>Product journey</h3>
+                  <p>
+                    The research, personas, journey map, wireframes and style
+                    guide that shaped the product.
+                  </p>
+                  <div class="bf-links">
+                    <a
+                      class="btn btn-ghost-light"
+                      href="product_journey/index.html"
+                      >Explore the journey</a
+                    ><a
+                      class="btn btn-ghost-light"
+                      href="assets/buzzfest-product-journey.pdf"
+                      >Read the case study</a
+                    ><a
+                      class="btn btn-ghost-light"
+                      href="https://docs.google.com/presentation/d/1LEFaP4QtHL6kJTGzFGF35TZScXkSBKyGo-bjZ685E84/edit?usp=drive_link"
+                      target="_blank"
+                      rel="noopener"
+                      >Open the slides</a
+                    >
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <details class="bf-embed reveal">
+            <summary>Read the case study deck here</summary>
+            <div class="bf-frame">
+              <iframe
+                loading="lazy"
+                title="Apna Bakery case study slides"
+                src="https://docs.google.com/presentation/d/1LEFaP4QtHL6kJTGzFGF35TZScXkSBKyGo-bjZ685E84/embed?start=false&amp;loop=false&amp;delayms=3000"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <p class="bf-note">
+              If the slides do not load,
+              <a
+                href="https://docs.google.com/presentation/d/1LEFaP4QtHL6kJTGzFGF35TZScXkSBKyGo-bjZ685E84/edit?usp=drive_link"
+                target="_blank"
+                rel="noopener"
+                >open them in Google Slides</a
+              >.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="band band-paper" id="about">
+        <div class="fold fold-to-paper"></div>
+        <div class="inner">
+          <div class="about-grid">
+            <div class="about-copy reveal">
+              <span class="eyebrow-mark">Where the interface began</span>
+              <h2
                 style="
-                  color: var(--accent-primary-deep);
-                  text-decoration: underline;
+                  margin: 14px 0 26px;
+                  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
                 "
-                >the writing</a
-              >: understand the audience, structure the page, and make sure it
-              works.
-            </p>
-          </div>
-          <div class="stat-list reveal">
-            <div class="stat">
-              <b>15+</b><span>years in digital products &amp; UX</span>
+              >
+                About the design practice
+              </h2>
+              <p>
+                For fifteen years I've worked inside digital products and UX —
+                as a UX and frontend architect, then more and more as the person
+                making the actual interface decisions when there was no
+                dedicated designer in the room.
+              </p>
+              <p>
+                That hands-on need turned into a real design practice:
+                wireframes and prototypes in Figma, visual systems in
+                Illustrator and Photoshop, and layouts built to hold up in
+                production, not just in a mockup — from a bakery's ordering app
+                to a sustainable-goods storefront to posters and interior
+                concepts.
+              </p>
+              <p>
+                It's the same instinct that shows up in
+                <a
+                  href="index.html"
+                  style="
+                    color: var(--accent-primary-deep);
+                    text-decoration: underline;
+                  "
+                  >the writing</a
+                >: understand the audience, structure the page, and make sure it
+                works.
+              </p>
             </div>
-            <div class="stat"><b>4</b><span>Behance case studies</span></div>
-            <div class="stat">
-              <b>2</b><span>Figma design systems shipped</span>
+            <div class="stat-list reveal">
+              <div class="stat">
+                <b>15+</b><span>years in digital products &amp; UX</span>
+              </div>
+              <div class="stat"><b>4</b><span>Behance case studies</span></div>
+              <div class="stat">
+                <b>2</b><span>Figma design systems shipped</span>
+              </div>
+              <div class="stat">
+                <b>4</b
+                ><span>core tools: Figma, Photoshop, Illustrator, XD</span>
+              </div>
             </div>
-            <div class="stat">
-              <b>4</b><span>core tools: Figma, Photoshop, Illustrator, XD</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TOOLKIT ============ -->
+      <section class="band band-paper-alt" id="toolkit">
+        <div class="inner">
+          <div class="section-head reveal">
+            <h2>What the practice covers</h2>
+            <p>
+              Design tools, visual craft, and just enough front-end code to keep
+              developers honest.
+            </p>
+          </div>
+          <div class="services-grid reveal">
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="4" y="4" width="16" height="16" rx="1" />
+                <path d="M4 9.5h16M9 9.5V20" />
+              </svg>
+              <h3>UI/UX design</h3>
+              <p>
+                Wireframes, user flows, and responsive interfaces — designed for
+                usability first, polish second.
+              </p>
+            </div>
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="9" cy="9" r="5.2" />
+                <circle cx="15.5" cy="14.5" r="5.2" />
+              </svg>
+              <h3>Visual &amp; graphic design</h3>
+              <p>
+                Layout, typography, colour and branding — for screens, print,
+                posters and apparel alike.
+              </p>
+            </div>
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="4" y="4" width="7" height="7" rx="1" />
+                <rect x="13" y="4" width="7" height="7" rx="1" />
+                <rect x="4" y="13" width="7" height="7" rx="1" />
+                <rect x="13" y="13" width="7" height="7" rx="1" />
+              </svg>
+              <h3>Design systems</h3>
+              <p>
+                Tokens, components and libraries that keep a product's visual
+                language consistent as it grows.
+              </p>
+            </div>
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 4l14 7-6 2-2 6-6-15z" />
+              </svg>
+              <h3>Prototyping</h3>
+              <p>
+                Figma prototypes and interactive flows that make a concept feel
+                real before a line of code is written.
+              </p>
+            </div>
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="6" r="1.8" />
+                <path d="M4 10.5c4-2 12-2 16 0M12 8.3V14M8 21l4-7 4 7" />
+              </svg>
+              <h3>Accessibility</h3>
+              <p>
+                Interfaces that hold up under WCAG/ARIA scrutiny, not just a
+                design review.
+              </p>
+            </div>
+            <div class="service">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" />
+              </svg>
+              <h3>Design-to-dev collaboration</h3>
+              <p>
+                HTML, CSS, JavaScript and React — enough hands-on code to hand
+                off cleanly and speak the same language as engineering.
+              </p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ============ TOOLKIT ============ -->
-    <section class="band band-paper-alt" id="toolkit">
-      <div class="inner">
-        <div class="section-head reveal">
-          <h2>What the practice covers</h2>
-          <p>
-            Design tools, visual craft, and just enough front-end code to keep
-            developers honest.
-          </p>
-        </div>
-        <div class="services-grid reveal">
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="4" y="4" width="16" height="16" rx="1" />
-              <path d="M4 9.5h16M9 9.5V20" />
-            </svg>
-            <h3>UI/UX design</h3>
+      <!-- ============ SELECTED WORK ============ -->
+      <section class="band band-ink" id="work">
+        <div class="fold fold-to-ink"></div>
+        <div class="inner">
+          <div class="section-head reveal">
+            <h2>Selected work</h2>
             <p>
-              Wireframes, user flows, and responsive interfaces — designed for
-              usability first, polish second.
+              Two ways of looking at the same instinct: interfaces built to be
+              used, and visuals built to be looked at.
             </p>
           </div>
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="9" cy="9" r="5.2" />
-              <circle cx="15.5" cy="14.5" r="5.2" />
-            </svg>
-            <h3>Visual &amp; graphic design</h3>
-            <p>
-              Layout, typography, colour and branding — for screens, print,
-              posters and apparel alike.
-            </p>
-          </div>
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="4" y="4" width="7" height="7" rx="1" />
-              <rect x="13" y="4" width="7" height="7" rx="1" />
-              <rect x="4" y="13" width="7" height="7" rx="1" />
-              <rect x="13" y="13" width="7" height="7" rx="1" />
-            </svg>
-            <h3>Design systems</h3>
-            <p>
-              Tokens, components and libraries that keep a product's visual
-              language consistent as it grows.
-            </p>
-          </div>
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 4l14 7-6 2-2 6-6-15z" />
-            </svg>
-            <h3>Prototyping</h3>
-            <p>
-              Figma prototypes and interactive flows that make a concept feel
-              real before a line of code is written.
-            </p>
-          </div>
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="6" r="1.8" />
-              <path d="M4 10.5c4-2 12-2 16 0M12 8.3V14M8 21l4-7 4 7" />
-            </svg>
-            <h3>Accessibility</h3>
-            <p>
-              Interfaces that hold up under WCAG/ARIA scrutiny, not just a
-              design review.
-            </p>
-          </div>
-          <div class="service">
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" />
-            </svg>
-            <h3>Design-to-dev collaboration</h3>
-            <p>
-              HTML, CSS, JavaScript and React — enough hands-on code to hand off
-              cleanly and speak the same language as engineering.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============ SELECTED WORK ============ -->
-    <section class="band band-ink" id="work">
-      <div class="fold fold-to-ink"></div>
-      <div class="inner">
-        <div class="section-head reveal">
-          <h2>Selected work</h2>
-          <p>
-            Two ways of looking at the same instinct: interfaces built to be
-            used, and visuals built to be looked at.
-          </p>
-        </div>
+          <article class="chapter reveal" id="chapter-1">
+            <div class="chapter-marker">
+              <span class="num">I</span>
+              <span class="kicker">UI/UX &amp; Product Design</span>
+            </div>
+            <div class="chapter-body">
+              <h3>Interfaces built to be used, not just admired</h3>
+              <p>
+                Real ordering flows and storefronts, designed end to end — from
+                the first wireframe to a shipped design system. Apna Bakery
+                alone runs three artefacts deep: a live case study, a task-first
+                mobile prototype, and the team design system behind it.
+              </p>
+              <ul class="piece-list">
+                <li>
+                  <a class="piece" href="#featured"
+                    ><span class="piece-title"
+                      >BuzzFest — product journey, research to build</span
+                    ><span class="piece-tag">Case study</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.behance.net/gallery/186818905/Apna-Bakery-Ordering-Application"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Apna Bakery — Ordering Application</span
+                    ><span class="piece-tag">UX case study</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.figma.com/design/2qXvhIPrYpJudUvKwfJhbN/Bakery-Ops?node-id=53-201&t=R5aKKtHv1Dnneh81-1"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Bakery-Ops — task-first mobile interface</span
+                    ><span class="piece-tag">Figma prototype</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.figma.com/design/jXPhHzYfmfR2anT7Wylw0r/APNAbAKERY-team-library?node-id=0-1&t=P4RiZpcl8qjHrnXu-1"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Apna Bakery — design system &amp; team library</span
+                    ><span class="piece-tag">Figma library</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.behance.net/gallery/186495591/Prakrutik-A-sustainable-product-company"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >Prakrutik — a sustainable product company</span
+                    ><span class="piece-tag">UX case study</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
 
-        <article class="chapter reveal" id="chapter-1">
-          <div class="chapter-marker">
-            <span class="num">I</span>
-            <span class="kicker">UI/UX &amp; Product Design</span>
-          </div>
-          <div class="chapter-body">
-            <h3>Interfaces built to be used, not just admired</h3>
+          <article class="chapter reveal" id="chapter-2">
+            <div class="chapter-marker">
+              <span class="num">II</span>
+              <span class="kicker">Graphic &amp; Visual Design</span>
+            </div>
+            <div class="chapter-body">
+              <h3>Where it's print, not pixels</h3>
+              <p>
+                The same eye for layout and colour, pointed at posters, apparel,
+                and interiors instead of screens.
+              </p>
+              <ul class="piece-list">
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.behance.net/gallery/187769227/POSTER-DESIGNT-SHIRT-DESIGN"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title">Poster &amp; T-Shirt Design</span
+                    ><span class="piece-tag">Graphic design</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.behance.net/gallery/183717617/hotSpot-Interior-Designs"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title"
+                      >hotSpot — interior design concepts</span
+                    ><span class="piece-tag">Interior &amp; print</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="piece"
+                    href="https://www.behance.net/rohinin"
+                    target="_blank"
+                    rel="noopener"
+                    ><span class="piece-title">Full portfolio on Behance</span
+                    ><span class="piece-tag">Behance</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="band band-ink" id="contact">
+        <div class="inner contact-inner">
+          <div class="section-head reveal" style="margin-bottom: 36px">
+            <h2>Let's design something</h2>
             <p>
-              Real ordering flows and storefronts, designed end to end — from
-              the first wireframe to a shipped design system. Apna Bakery alone
-              runs three artefacts deep: a live case study, a task-first mobile
-              prototype, and the team design system behind it.
+              A UI/UX role, a design system that needs a first draft, or a brand
+              that needs a poster — tell me what the screen (or the shirt) needs
+              to do, and I'll design until it does it.
             </p>
-            <ul class="piece-list">
-              <li>
-                <a class="piece" href="#featured"
-                  ><span class="piece-title"
-                    >BuzzFest — product journey, research to build</span
-                  ><span class="piece-tag">Case study</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.behance.net/gallery/186818905/Apna-Bakery-Ordering-Application"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Apna Bakery — Ordering Application</span
-                  ><span class="piece-tag">UX case study</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.figma.com/design/2qXvhIPrYpJudUvKwfJhbN/Bakery-Ops?node-id=53-201&t=R5aKKtHv1Dnneh81-1"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Bakery-Ops — task-first mobile interface</span
-                  ><span class="piece-tag">Figma prototype</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.figma.com/design/jXPhHzYfmfR2anT7Wylw0r/APNAbAKERY-team-library?node-id=0-1&t=P4RiZpcl8qjHrnXu-1"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Apna Bakery — design system &amp; team library</span
-                  ><span class="piece-tag">Figma library</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.behance.net/gallery/186495591/Prakrutik-A-sustainable-product-company"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >Prakrutik — a sustainable product company</span
-                  ><span class="piece-tag">UX case study</span></a
-                >
-              </li>
-            </ul>
           </div>
-        </article>
+          <a class="contact-email reveal" href="mailto:webdevzbang@gmail.com"
+            >rnijampure@gmail.com</a
+          >
+          <div class="social-row reveal">
+            <a
+              href="https://www.behance.net/rohinin"
+              target="_blank"
+              rel="noopener"
+              >Behance</a
+            >
+            <a
+              href="https://hashnode.com/@frontender09"
+              target="_blank"
+              rel="noopener"
+              >Hashnode</a
+            >
+            <a
+              href="https://github.com/rnijampure"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              href="https://www.instagram.com/rnijampure/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >
+            <a
+              href="https://www.linkedin.com/in/rohini-nijampure-1b5b7622"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </div>
+          <div class="site-footer">
+            <span>Rohini N — Bangalore, India</span>
+            <span>© 2026, all rights reserved</span>
+          </div>
+        </div>
+      </section>
+    </main>
 
-        <article class="chapter reveal" id="chapter-2">
-          <div class="chapter-marker">
-            <span class="num">II</span>
-            <span class="kicker">Graphic &amp; Visual Design</span>
-          </div>
-          <div class="chapter-body">
-            <h3>Where it's print, not pixels</h3>
-            <p>
-              The same eye for layout and colour, pointed at posters, apparel,
-              and interiors instead of screens.
-            </p>
-            <ul class="piece-list">
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.behance.net/gallery/187769227/POSTER-DESIGNT-SHIRT-DESIGN"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title">Poster &amp; T-Shirt Design</span
-                  ><span class="piece-tag">Graphic design</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.behance.net/gallery/183717617/hotSpot-Interior-Designs"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title"
-                    >hotSpot — interior design concepts</span
-                  ><span class="piece-tag">Interior &amp; print</span></a
-                >
-              </li>
-              <li>
-                <a
-                  class="piece"
-                  href="https://www.behance.net/rohinin"
-                  target="_blank"
-                  rel="noopener"
-                  ><span class="piece-title">Full portfolio on Behance</span
-                  ><span class="piece-tag">Behance</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="band band-ink" id="contact">
-      <div class="inner contact-inner">
-        <div class="section-head reveal" style="margin-bottom: 36px">
-          <h2>Let's design something</h2>
-          <p>
-            A UI/UX role, a design system that needs a first draft, or a brand
-            that needs a poster — tell me what the screen (or the shirt) needs
-            to do, and I'll design until it does it.
-          </p>
-        </div>
-        <a class="contact-email reveal" href="mailto:webdevzbang@gmail.com"
-          >rnijampure@gmail.com</a
-        >
-        <div class="social-row reveal">
-          <a
-            href="https://www.behance.net/rohinin"
-            target="_blank"
-            rel="noopener"
-            >Behance</a
-          >
-          <a
-            href="https://hashnode.com/@frontender09"
-            target="_blank"
-            rel="noopener"
-            >Hashnode</a
-          >
-          <a href="https://github.com/rnijampure" target="_blank" rel="noopener"
-            >GitHub</a
-          >
-          <a
-            href="https://www.instagram.com/rnijampure/"
-            target="_blank"
-            rel="noopener"
-            >Instagram</a
-          >
-          <a
-            href="http://linkedin.com/in/rohini-nijampure-1b5b7622"
-            target="_blank"
-            rel="noopener"
-            >LinkedIn</a
-          >
-        </div>
-        <div class="site-footer">
-          <span>Rohini N — Bangalore, India</span>
-          <span>© 2026, all rights reserved</span>
-        </div>
-      </div>
-    </section>
     <script>
       document.documentElement.classList.add("js");
 
@@ -1965,13 +2056,15 @@
       /* mobile nav toggle */
       var navToggle = document.getElementById("navToggle");
       navToggle.addEventListener("click", function () {
-        document.body.classList.toggle("nav-open");
+        var open = document.body.classList.toggle("nav-open");
+        navToggle.setAttribute("aria-expanded", String(open));
       });
       document
         .getElementById("navMenu")
         .addEventListener("click", function (e) {
           if (e.target.tagName === "A") {
             document.body.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
           }
         });
 
